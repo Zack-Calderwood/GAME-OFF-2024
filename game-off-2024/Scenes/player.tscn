@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://df6drajyppg1f"]
+[gd_scene load_steps=6 format=3 uid="uid://df6drajyppg1f"]
 
 [ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/player.png" id="1_1pnra"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_p2k4j"]
 [ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/light_cone.png" id="3_6rv0v"]
+[ext_resource type="Script" path="res://Scenes/Flashlight.gd" id="4_kv2ns"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcxtd"]
 radius = 8.0
@@ -11,6 +12,7 @@ radius = 8.0
 script = ExtResource("1_p2k4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("1_1pnra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,3 +24,4 @@ scale = Vector2(0.491407, 0.614662)
 shadow_enabled = true
 texture = ExtResource("3_6rv0v")
 offset = Vector2(400, 0)
+script = ExtResource("4_kv2ns")
