@@ -19,15 +19,12 @@ const speed = 50
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 func _process(delta: float) -> void:
-	print("State: ", state)
 	match state :
 		EnemyState.PATROL: 
 			handle_patrol_state()
 		EnemyState.CHASE:
 			handle_chase_state()
 	
-
-
 
 func _physics_process(delta: float) -> void:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
