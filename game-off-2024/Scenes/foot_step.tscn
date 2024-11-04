@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cldo14d6fnlqs"]
+
+[ext_resource type="Script" path="res://Scenes/foot_step.gd" id="1_go6x6"]
+[ext_resource type="Texture2D" uid="uid://68cj3dmnvr2t" path="res://Assets/black_square.png" id="1_n3p35"]
+
+[node name="FootStep" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_n3p35")
+script = ExtResource("1_go6x6")

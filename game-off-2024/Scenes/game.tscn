@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=14 format=3 uid="uid://en5hkr4v01ov"]
 
+[ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
 [ext_resource type="Texture2D" uid="uid://b1fxx4rrcdp7c" path="res://Assets/white_square.png" id="2_h68ba"]
 [ext_resource type="PackedScene" uid="uid://6y66hehhodfs" path="res://Scenes/box.tscn" id="3_ip4g7"]
 [ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/Solaria Demo Tiles.png" id="4_b575t"]
-[ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://enemy.tscn" id="5_1h8ef"]
+[ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://Scenes/enemy.tscn" id="5_1h8ef"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -407,6 +408,9 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_oehfv")
 
 [node name="Game" type="Node2D"]
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("enemy_node") instance=ExtResource("1_562c2")]
+enemy_node = NodePath("../Enemy")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0177324, 0.0177324, 0.0177324, 1)
