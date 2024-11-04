@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://df6drajyppg1f"]
+[gd_scene load_steps=7 format=3 uid="uid://df6drajyppg1f"]
 
 [ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/player.png" id="1_1pnra"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_p2k4j"]
 [ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/light_cone.png" id="3_6rv0v"]
 [ext_resource type="Script" path="res://Scenes/Flashlight.gd" id="4_kv2ns"]
+[ext_resource type="Texture2D" uid="uid://871mdxyt406o" path="res://Assets/white_circle.png" id="5_04vrb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcxtd"]
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_p2k4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,10 +21,15 @@ texture = ExtResource("1_1pnra")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lcxtd")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(32, 0)
-scale = Vector2(0.491407, 0.614662)
+[node name="PointLightFlashLight" type="PointLight2D" parent="."]
+position = Vector2(1.1393, 0)
+scale = Vector2(0.525116, 0.614662)
 shadow_enabled = true
 texture = ExtResource("3_6rv0v")
-offset = Vector2(400, 0)
+offset = Vector2(450, 0)
 script = ExtResource("4_kv2ns")
+
+[node name="PointLightPlayer" type="PointLight2D" parent="."]
+scale = Vector2(0.2, 0.2)
+energy = 0.32
+texture = ExtResource("5_04vrb")
