@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwv6x1dinc7oc"]
+
+[ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/player.png" id="1_kc6fy"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_sopi6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixssr"]
+radius = 8.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e3rvq"]
+polygon = PackedVector2Array(-6.4, -8, 6.4, -8, 6.4, 8, -6.4, 8)
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_sopi6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kc6fy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ixssr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(0.876395, 0.155007, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_e3rvq")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -12,7 +12,6 @@ func spawn_node(position: Vector2):
 	
 	get_parent().add_child(node_instance)
 	
-	print("Node spawned at position: ", position)
 
 func _on_timer_timeout() -> void:
 	spawn_node(enemy_node.global_position)
