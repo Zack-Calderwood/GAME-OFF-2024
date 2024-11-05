@@ -22,7 +22,6 @@ texture = ExtResource("1_1pnra")
 shape = SubResource("CircleShape2D_lcxtd")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
-position = Vector2(8.13698, 0.250048)
 scale = Vector2(0.524966, 0.602444)
 shadow_enabled = true
 texture = ExtResource("3_6rv0v")
