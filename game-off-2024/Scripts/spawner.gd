@@ -1,11 +1,10 @@
 extends Node2D
 
 var footStepNode = preload("res://Scenes/foot_step.tscn")
+
 @export var note: PackedScene
 @export var enemy_node: Node2D
-
-
-@export var notes: Array = []
+@export var game_manager_path: NodePath
 
 var spawnedObject = true
 
@@ -34,7 +33,8 @@ func spawn_notes()-> void:
 		
 		get_parent().add_child(note_instance)
 		
-		notes.append(note_instance)
+		var game_manager = get_node(game_manager_path)
+		game_manager.add_spawned_object(note_instance)
 		
 	spawnedObject = false
 	pass
