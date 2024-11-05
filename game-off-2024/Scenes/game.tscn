@@ -416,7 +416,7 @@ enemy_node = NodePath("../Enemy")
 game_manager_path = NodePath("../GameManager")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.521141, 0.521141, 0.521141, 1)
+color = Color(0.637843, 0.637843, 0.637843, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
 position = Vector2(-280, -64)
