@@ -21,13 +21,20 @@ texture = ExtResource("1_1pnra")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lcxtd")
 
-[node name="PointLightFlashLight" type="PointLight2D" parent="."]
-position = Vector2(1.1393, 0)
-scale = Vector2(0.525116, 0.614662)
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(8.13698, 0.250048)
+scale = Vector2(0.524966, 0.602444)
 shadow_enabled = true
 texture = ExtResource("3_6rv0v")
-offset = Vector2(450, 0)
+offset = Vector2(450.29, -0.38)
 script = ExtResource("4_kv2ns")
+
+[node name="Area2D" type="Area2D" parent="FlashLight"]
+position = Vector2(-15.2347, 4.88073)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlashLight/Area2D"]
+position = Vector2(15.2347, 0)
+polygon = PackedVector2Array(-15.5, -5.29579, 500, 50, 500, -50)
 
 [node name="PointLightPlayer" type="PointLight2D" parent="."]
 scale = Vector2(0.2, 0.2)

@@ -53,4 +53,6 @@ shape = SubResource("CircleShape2D_fkqvc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_shape_entered" from="TouchArea" to="." method="_on_touch_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="TouchArea" to="." method="_on_touch_area_area_shape_exited"]
+[connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
