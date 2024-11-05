@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl6inba4bo10p"]
+[gd_scene load_steps=7 format=3 uid="uid://dl6inba4bo10p"]
 
 [ext_resource type="Script" path="res://Scenes/door.gd" id="1_daevp"]
 [ext_resource type="Texture2D" uid="uid://dopq6w5omi6x" path="res://icon.svg" id="1_xkwdn"]
@@ -8,6 +8,9 @@ friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ew6xp"]
 size = Vector2(64, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iw3wy"]
+polygon = PackedVector2Array(-34.8886, -10.8402, 34.8886, -10.8402, 34.8886, 10.8402, -34.8886, 10.8402)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcbuf"]
 
@@ -30,8 +33,13 @@ linear_damp = 5.0
 shape = SubResource("RectangleShape2D_ew6xp")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.5, 0.125)
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.4775, 0.125)
 texture = ExtResource("1_xkwdn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D"]
+scale = Vector2(0.917206, 0.737994)
+occluder = SubResource("OccluderPolygon2D_iw3wy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-32, 0)

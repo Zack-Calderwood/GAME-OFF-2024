@@ -6,6 +6,8 @@ const MIN_PUSH_FORCE = 10.0
 var speed = 200
 var collision
 
+@export var enemy: Node2D
+
 func _process(delta):
 
 	var direction = Vector2.ZERO
@@ -32,3 +34,4 @@ func _process(delta):
 		if c.get_collider() is RigidBody2D:
 			var push_force = (PUSH_FORCE*velocity.length()/speed ) + MIN_PUSH_FORCE
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			
