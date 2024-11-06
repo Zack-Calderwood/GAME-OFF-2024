@@ -40,9 +40,9 @@ energy = 0.32
 texture = ExtResource("5_04vrb")
 
 [node name="GhostFlashLight" type="PointLight2D" parent="."]
-visible = false
 position = Vector2(8.24981, -5)
 scale = Vector2(0.476647, 0.602444)
+enabled = false
 color = Color(0.854902, 0, 0.709804, 1)
 shadow_enabled = true
 texture = ExtResource("3_6rv0v")

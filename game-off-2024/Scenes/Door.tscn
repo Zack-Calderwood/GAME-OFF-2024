@@ -24,7 +24,7 @@ node_b = NodePath("../StaticBody2D")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["doors"]]
 collision_mask = 7
-mass = 5.0
+mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_1nixm")
 gravity_scale = 0.0
 linear_damp = 5.0

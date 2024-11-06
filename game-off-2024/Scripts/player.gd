@@ -20,7 +20,11 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 	
-
+	if Input.is_action_just_pressed("F"):
+		$FlashLight.visible = !$FlashLight.visible
+		$GhostFlashLight.visible = !$GhostFlashLight.visible
+		print("imworking")
+	
 		
 
 	if direction != Vector2.ZERO:
