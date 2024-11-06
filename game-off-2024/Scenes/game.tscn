@@ -417,7 +417,6 @@ game_manager_path = NodePath("../GameManager")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(0, 1)
-color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
 position = Vector2(-520, -264)
