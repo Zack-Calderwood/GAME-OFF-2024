@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
 
-var speed = 200
+var speed = 150
 var collision
 
 @export var enemy: Node2D
@@ -19,6 +19,9 @@ func _process(delta):
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
+	
+
+		
 
 	if direction != Vector2.ZERO:
 		direction = direction.normalized() * speed
