@@ -22,6 +22,7 @@ var currentSpeed = 0
 var currentTarget
 var angle_to_target
 var randomTarget 
+var seesPlayer = false 
 
 @export var cone_angle = 45
 @export var ray_count = 10
@@ -123,6 +124,7 @@ func create_vision_cone() -> void:
 	pass 
 
 func vision_cone_detect(delta: float) -> void:
+	
 	for i in range(ray_count):
 		angle_to_target = global_position.angle_to_point(currentTarget.position)
 		var angle = deg_to_rad(-cone_angle / 2 + cone_angle * i / (ray_count - 1))
@@ -136,8 +138,16 @@ func vision_cone_detect(delta: float) -> void:
 			var collider = ray.get_collider()
 			if state != EnemyState.CHASE : 
 				if collider == player:
+					seesPlayer = true
 					currentTarget = player
 					change_state(EnemyState.CHASE)
+					
+	var lightPos = currentTarget.position
+
+	var dire = lightPos - global_position
+
+	$FlashLight.rotation = dire.angle()
+
 	pass
 
 func _on_player_exit_body_exited(body: Node2D) -> void:

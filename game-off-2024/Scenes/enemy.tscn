@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/player.png" id="1_kc6fy"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_sopi6"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e3rvq"]
-polygon = PackedVector2Array(-6.4, -8, 6.4, -8, 6.4, 8, -6.4, 8)
+[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/light_cone.png" id="3_e7lxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixssr"]
 radius = 8.0
@@ -20,7 +18,23 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_sopi6")
 
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(0.862608, 4.76837e-07)
+scale = Vector2(0.0567132, 0.053)
+shadow_enabled = true
+texture = ExtResource("3_e7lxw")
+offset = Vector2(450.29, -0.38)
+
+[node name="Area2D" type="Area2D" parent="FlashLight"]
+position = Vector2(-15.2347, 4.88073)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlashLight/Area2D"]
+position = Vector2(15.2347, 0)
+polygon = PackedVector2Array(-15.21, 3.4188, 500, 50, 500, -50)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.55, 0)
+scale = Vector2(0.926667, 1)
 texture = ExtResource("1_kc6fy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -28,17 +42,12 @@ debug_enabled = true
 debug_path_custom_color = Color(0.876395, 0.155007, 0, 1)
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(0, 1.19209e-07)
-scale = Vector2(0.84644, 0.740221)
-occluder = SubResource("OccluderPolygon2D_e3rvq")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_mask = 3
