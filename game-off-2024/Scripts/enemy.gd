@@ -56,7 +56,7 @@ func makepath() -> void:
 	nav_agent.target_position = currentTarget.global_position;
 
 func _on_timer_timeout() -> void:
-	print("state change")
+	print("Timer end")
 	find_new_target()
 	pass # Replace with function body.
 	
@@ -98,24 +98,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func change_state(newState: int):
 	state = newState
 	currentSpeed = 50
-	print("current " , state)
+	print("current state " , state)
 	find_new_target()
 	pass
 
 func _on_touch_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if currentTarget == area.get_parent() :
 		find_new_target()
-		
-	if area.get_parent().name == "FlashLight" :
-		print("startAlertTimer")
-	
-	
 	
 	pass # Replace with function body.
 	
 func _on_touch_area_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area.get_parent().name == "FlashLight" :
-		print("ExitAlertTimer")
 	pass # Replace with function body.
 
 func _on_touch_area_body_entered(body: Node2D) -> void:
@@ -138,19 +131,23 @@ func vision_cone_detect(delta: float) -> void:
 		
 		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * currentSpeed)
 		ray.rotation = angle 
+		
 		if ray.is_colliding():
 			var collider = ray.get_collider()
-			if collider == player:
-				currentTarget = player
+			if state != EnemyState.CHASE : 
+				if collider == player:
+					currentTarget = player
+					change_state(EnemyState.CHASE)
 	pass
 
 func _on_player_exit_body_exited(body: Node2D) -> void:
-	if body == player :
-		timerState.start()
-		print("timer start")
+	if state == EnemyState.SEARCH :
+		if body == player :
+			timerState.start()
+			print("timer start")
 	pass # Replace with function body.
 
-
 func _on_change_state_timeout() -> void:
+	print("Timer ended now patrol")
 	change_state(EnemyState.PATROL)
 	pass # Replace with function body.
