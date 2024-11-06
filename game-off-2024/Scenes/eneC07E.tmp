@@ -27,13 +27,9 @@ texture = ExtResource("1_kc6fy")
 debug_enabled = true
 debug_path_custom_color = Color(0.876395, 0.155007, 0, 1)
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(0, 1.19209e-07)
@@ -55,7 +51,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_fkqvc")
 
-[connection signal="timeout" from="Timer2" to="." method="_on_change_state_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_shape_entered" from="TouchArea" to="." method="_on_touch_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="TouchArea" to="." method="_on_touch_area_area_shape_exited"]
