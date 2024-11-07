@@ -11,11 +11,11 @@ radius = 8.0
 radius = 24.1311
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0j42"]
-radius = 3.10078
+radius = 3.2
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
-collision_layer = 4
+collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -54,7 +54,7 @@ autostart = true
 wait_time = 3.0
 
 [node name="TouchArea" type="Area2D" parent="."]
-collision_mask = 11
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 visibility_layer = 3
@@ -69,10 +69,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_fkqvc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-scale = Vector2(1.032, 1)
 shape = SubResource("CircleShape2D_t0j42")
-disabled = true
 
 [connection signal="timeout" from="Timer2" to="." method="_on_change_state_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

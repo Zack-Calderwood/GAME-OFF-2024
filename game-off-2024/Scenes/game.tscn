@@ -529,6 +529,7 @@ rotation = -1.57079
 
 [node name="Door2" parent="." instance=ExtResource("8_l8ale")]
 position = Vector2(496, 128)
+rotation = -3.14159
 
 [node name="canvisLayer" type="CanvasLayer" parent="."]
 layer = 0

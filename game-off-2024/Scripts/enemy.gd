@@ -9,6 +9,10 @@ enum EnemyState
 
 var state: int = EnemyState.CHASE
 
+const PUSH_FORCE = 15.0
+const MIN_PUSH_FORCE = 10.0
+
+
 var randomNumber = -1 
 
 const patrolSpeed = 50
@@ -33,6 +37,7 @@ var detected_enemies = []
 @onready var timerState = $Timer2
 
 func _process(delta: float) -> void:
+	door_push()
 	match state :
 		EnemyState.PATROL: 
 			handle_patrol_state()
@@ -133,7 +138,7 @@ func vision_cone_detect(delta: float, look_speed: float) -> void:
 		angle_to_target = global_position.angle_to_point(currentTarget.position)
 		var angle = deg_to_rad(-cone_angle / 2 + cone_angle * i / (ray_count - 1))
 		var direction = Vector2(cos(angle_to_target), sin(angle_to_target))
-		var ray = get_child(i + 7)  # this need to be revisted can't have 6 here 
+		var ray = get_child(i + 8)  # this need to be revisted can't have 6 here 
 		
 		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * look_speed)
 		ray.rotation = angle 
@@ -165,3 +170,10 @@ func _on_change_state_timeout() -> void:
 	print("Timer ended now patrol")
 	change_state(EnemyState.PATROL)
 	pass # Replace with function body.
+	
+func door_push():
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var push_force = (PUSH_FORCE*velocity.length()/currentSpeed ) + MIN_PUSH_FORCE
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)

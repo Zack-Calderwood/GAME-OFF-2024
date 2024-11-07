@@ -37,7 +37,11 @@ func _process(delta):
 
 	
 	move_and_slide()
+	door_push()
 	
+	
+	
+func door_push():
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
