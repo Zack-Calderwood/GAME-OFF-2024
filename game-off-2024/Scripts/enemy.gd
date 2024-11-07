@@ -131,7 +131,7 @@ func vision_cone_detect(delta: float) -> void:
 		var direction = Vector2(cos(angle_to_target), sin(angle_to_target))
 		var ray = get_child(i + 7)  # this need to be revisted can't have 6 here 
 		
-		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * currentSpeed)
+		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * 1)
 		ray.rotation = angle 
 		
 		if ray.is_colliding():
@@ -146,7 +146,7 @@ func vision_cone_detect(delta: float) -> void:
 
 	var dire = lightPos - global_position
 
-	$FlashLight.rotation = dire.angle()
+	$FlashLight.rotation = lerp_angle($FlashLight.rotation, dire.angle(), 1 * delta)
 
 	pass
 

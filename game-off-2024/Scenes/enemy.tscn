@@ -21,6 +21,7 @@ script = ExtResource("1_sopi6")
 [node name="FlashLight" type="PointLight2D" parent="."]
 position = Vector2(0.862608, 4.76837e-07)
 scale = Vector2(0.0567132, 0.053)
+color = Color(0.709628, 0.0210424, 3.85046e-07, 1)
 shadow_enabled = true
 texture = ExtResource("3_e7lxw")
 offset = Vector2(450.29, -0.38)
