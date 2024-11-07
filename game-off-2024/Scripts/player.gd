@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
 
-var speed = 150
+var speed = 100
 var collision
 
 @export var enemy: Node2D
@@ -25,7 +25,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("F"):
 		$FlashLight.visible = !$FlashLight.visible
 		$GhostFlashLight.visible = !$GhostFlashLight.visible
-		print("imworking")
+		
 	
 		
 
