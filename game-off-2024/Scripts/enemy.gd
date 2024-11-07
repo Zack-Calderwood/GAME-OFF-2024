@@ -129,6 +129,7 @@ func create_vision_cone() -> void:
 	for i in range(ray_count):
 		var ray = RayCast2D.new()
 		ray.enabled = true
+		ray.collision_mask = 3
 		add_child(ray)
 	pass 
 
