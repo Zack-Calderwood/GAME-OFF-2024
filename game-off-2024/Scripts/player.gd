@@ -8,6 +8,8 @@ var collision
 
 @export var enemy: Node2D
 
+
+
 func _process(delta):
 
 	var direction = Vector2.ZERO

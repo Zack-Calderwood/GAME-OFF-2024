@@ -3,11 +3,11 @@ extends PointLight2D
 # Reference to the player node
 @onready var player = $".."
 
-var radius: float = 30.0
+var radius = 30.0
 
-var move_lerp_speed: float = 5.0
+var move_lerp_speed  = 5.0
 
-var rotate_lerp_speed: float = 5.0
+var rotate_lerp_speed = 5.0
 
 
 
@@ -26,3 +26,4 @@ func _process(delta: float) -> void:
 	rotation = lerp_angle(rotation, target_rotation, rotate_lerp_speed * delta)
 	
 	pass
+	
