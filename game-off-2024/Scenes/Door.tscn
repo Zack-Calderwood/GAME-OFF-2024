@@ -7,7 +7,7 @@
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ew6xp"]
-size = Vector2(39, 15)
+size = Vector2(40, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iw3wy"]
 polygon = PackedVector2Array(-34.8886, -10.8402, 34.8886, -10.8402, 34.8886, 10.8402, -34.8886, 10.8402)
@@ -30,7 +30,7 @@ gravity_scale = 0.0
 linear_damp = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(3.5, -0.5)
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_ew6xp")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
