@@ -33,14 +33,17 @@ var detected_enemies = []
 @onready var timerState = $Timer2
 
 func _process(delta: float) -> void:
-	vision_cone_detect(delta)
 	match state :
 		EnemyState.PATROL: 
 			handle_patrol_state()
+			vision_cone_detect(delta,1)
+			timer.stop()
 		EnemyState.CHASE:
 			handle_chase_state()
+			vision_cone_detect(delta,10)
 		EnemyState.SEARCH:
 			handle_search_state()
+			vision_cone_detect(delta,1)
 
 func _ready() -> void:
 	currentSpeed = patrolSpeed
@@ -94,6 +97,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			currentTarget = player
 			timer.start()
 			
+			
 	pass # Replace with function body.
 	
 func change_state(newState: int):
@@ -123,7 +127,7 @@ func create_vision_cone() -> void:
 		add_child(ray)
 	pass 
 
-func vision_cone_detect(delta: float) -> void:
+func vision_cone_detect(delta: float, look_speed: float) -> void:
 	
 	for i in range(ray_count):
 		angle_to_target = global_position.angle_to_point(currentTarget.position)
@@ -131,7 +135,7 @@ func vision_cone_detect(delta: float) -> void:
 		var direction = Vector2(cos(angle_to_target), sin(angle_to_target))
 		var ray = get_child(i + 7)  # this need to be revisted can't have 6 here 
 		
-		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * 1)
+		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * look_speed)
 		ray.rotation = angle 
 		
 		if ray.is_colliding():
@@ -146,7 +150,7 @@ func vision_cone_detect(delta: float) -> void:
 
 	var dire = lightPos - global_position
 
-	$FlashLight.rotation = lerp_angle($FlashLight.rotation, dire.angle(), 1 * delta)
+	$FlashLight.rotation = lerp_angle($FlashLight.rotation, dire.angle(), look_speed * delta)
 
 	pass
 
