@@ -26,7 +26,7 @@ func _on_timer_timeout() -> void:
 	pass # Replace with function body.
 	
 func spawn_notes()-> void:
-	for i in range(5):
+	for i in range(6):
 		var note_instance = note.instantiate()
 		
 		note_instance.position = Vector2(randf_range(-500.0, 500.0), randf_range(-300.0, 300.0))
