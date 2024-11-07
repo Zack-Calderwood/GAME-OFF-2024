@@ -2,9 +2,9 @@ extends Camera2D
 
 @export var player: Node2D
 
-var follow_speed = 1.0
+var follow_speed = 1.75
 
-var mouse_offset_distance = 100.0
+var mouse_offset_distance = 50.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

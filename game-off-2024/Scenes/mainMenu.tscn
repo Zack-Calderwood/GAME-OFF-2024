@@ -25,7 +25,11 @@ offset_bottom = 49.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="gameName" type="Label" parent="HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="gameName" type="Label" parent="HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Book of Secrets
 Lost Pages
@@ -33,8 +37,14 @@ Lost In Darkness
 "
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "PLAY"
 
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="audioSettings" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Audio settings"
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
