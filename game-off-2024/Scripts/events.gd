@@ -9,3 +9,5 @@ signal player_lose
 signal score_update(score)
 
 signal Light_toggled(light)
+
+signal enemy_alert(location)
