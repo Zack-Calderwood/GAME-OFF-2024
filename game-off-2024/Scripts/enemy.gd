@@ -19,23 +19,21 @@ const patrolSpeed = 50
 const chaseSpeed = 120
 var currentSpeed = 0
 
+var currentTarget
+var angle_to_target
+
+var seesPlayer = false 
+
 
 @export var last_location: Node2D
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var game_manager = $"../GameManager"
 
-var currentTarget
-var angle_to_target
-var randomTarget 
-
-var seesPlayer = false 
-
 @export var cone_angle = 45
 @export var ray_count = 10
 @export var max_distance = 45
 
-var detected_enemies = []
 @onready var timer = $Timer
 @onready var timerState = $Timer2
 
@@ -43,15 +41,11 @@ func _process(delta: float) -> void:
 	door_push()
 	match state :
 		EnemyState.PATROL: 
-			handle_patrol_state()
-			enemy_at_location()
-			vision_cone_detect(delta,1)
+			handle_patrol_state(delta)
 		EnemyState.CHASE:
-			handle_chase_state()
-			vision_cone_detect(delta,10)
+			handle_chase_state(delta)
 		EnemyState.SEARCH:
-			handle_search_state()
-			vision_cone_detect(delta,2)
+			handle_search_state(delta)
 
 func _ready() -> void:
 	currentSpeed = patrolSpeed
@@ -61,27 +55,27 @@ func _ready() -> void:
 	Events.enemy_alert.connect(enemy_check_location)
 
 func _physics_process(delta: float) -> void:
-		var dir = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = dir * currentSpeed
-		makepath()
+	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = dir * currentSpeed
+	makepath()
 		
 func makepath() -> void:
 	nav_agent.target_position = currentTarget.global_position;
 
-func _on_timer_timeout() -> void:
-	"find_new_target()"
-	pass # Replace with function body.
-	
-func handle_patrol_state():
-	move_and_slide()
-	pass
-
-func handle_chase_state():
+func handle_patrol_state(delta: float):
 	enemy_at_location()
+	vision_cone_detect(delta,1)
 	move_and_slide()
 	pass
 
-func handle_search_state():	
+func handle_chase_state(delta: float):
+	enemy_at_location()
+	vision_cone_detect(delta,10)
+	move_and_slide()
+	pass
+
+func handle_search_state(delta: float):	
+	vision_cone_detect(delta,2)
 	pass
 	
 func find_new_target():
@@ -192,11 +186,9 @@ func enemy_at_location() -> void:
 	pass
 
 func los_timer_timeout() -> void:
-	print("new timer")
 	last_location.global_position = currentTarget.global_position
 	currentTarget = last_location
 	pass # Replace with function body.
-	
 	
 func call_with_delay(func_name: String, delay: float, times: int) -> void:
 	$Timer.wait_time = delay
