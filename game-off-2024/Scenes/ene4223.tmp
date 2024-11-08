@@ -46,12 +46,12 @@ debug_enabled = true
 debug_path_custom_color = Color(0.876395, 0.155007, 0, 1)
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 5.5
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
+wait_time = 3.0
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_mask = 11

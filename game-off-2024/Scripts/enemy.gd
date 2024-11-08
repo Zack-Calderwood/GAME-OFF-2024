@@ -44,11 +44,9 @@ func _process(delta: float) -> void:
 	match state :
 		EnemyState.PATROL: 
 			handle_patrol_state()
+			enemy_at_location()
 			vision_cone_detect(delta,1)
-			timer.stop()
 		EnemyState.CHASE:
-			timer.stop()
-			timerState.stop()
 			handle_chase_state()
 			vision_cone_detect(delta,10)
 		EnemyState.SEARCH:
@@ -71,8 +69,7 @@ func makepath() -> void:
 	nav_agent.target_position = currentTarget.global_position;
 
 func _on_timer_timeout() -> void:
-	print("Timer end")
-	find_new_target()
+	"find_new_target()"
 	pass # Replace with function body.
 	
 func handle_patrol_state():
@@ -85,7 +82,6 @@ func handle_chase_state():
 	pass
 
 func handle_search_state():	
-	currentSpeed = 1
 	pass
 	
 func find_new_target():
@@ -106,26 +102,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			currentTarget = player
 			timerState.start()
 			timer.start()
+			print("body entered")
 			
 			
 	pass # Replace with function body.
 	
-func change_state(newState: int):
+func change_state(newState: EnemyState):
 	state = newState
 	currentSpeed = 50
-	print("current state " , state)
-	find_new_target()
+	print("Changing state to: " , state)
 	pass
 
-func _on_touch_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if state == EnemyState.CHASE and currentTarget == area.get_parent() :
-		print("hit something ")
-		change_state(EnemyState.SEARCH)
-	elif currentTarget == area.get_parent() :
-		find_new_target()
-	
-	pass # Replace with function body.
-	
 func _on_touch_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_tree().reload_current_scene()
@@ -199,10 +186,9 @@ func enemy_check_location(gameObject: Node2D) -> void:
 func enemy_at_location() -> void: 
 	var offsetLocation = 2
 	if position.distance_to(currentTarget.position) <= offsetLocation:
+		print("at location")
 		change_state(EnemyState.SEARCH)
-		timer.start()
-		timerState.start()
-		
+		call_with_delay("find_new_target", 1.0, 5)	
 	pass
 
 func los_timer_timeout() -> void:
@@ -210,3 +196,12 @@ func los_timer_timeout() -> void:
 	last_location.global_position = currentTarget.global_position
 	currentTarget = last_location
 	pass # Replace with function body.
+	
+	
+func call_with_delay(func_name: String, delay: float, times: int) -> void:
+	$Timer.wait_time = delay
+	for i in range(times):
+		$Timer.start()
+		await $Timer.timeout
+		call(func_name)
+	change_state(EnemyState.PATROL)
