@@ -514,17 +514,16 @@ zoom = Vector2(2.595, 2.595)
 script = ExtResource("9_imr2k")
 player = NodePath("..")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("last_location", "player") instance=ExtResource("5_1h8ef")]
-position = Vector2(424, 216)
-last_location = NodePath("../LastLocation")
-player = NodePath("../Player")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
-color = Color(0, 0, 0, 1)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("last_location", "player") instance=ExtResource("5_1h8ef")]
+position = Vector2(424, 216)
+last_location = NodePath("../LastLocation")
+player = NodePath("../Player")
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)

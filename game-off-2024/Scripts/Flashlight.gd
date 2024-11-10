@@ -12,6 +12,10 @@ var rotate_lerp_speed = 5.0
 
 
 func _process(delta: float) -> void:
+	#if the mouse button is clicked toggle the flash light on or off
+	
+		
+
 	
 	var mouse_pos = get_global_mouse_position()
 	

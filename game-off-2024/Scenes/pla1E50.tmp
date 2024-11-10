@@ -21,22 +21,6 @@ texture = ExtResource("1_1pnra")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lcxtd")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-light_mask = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -13.5
-offset_right = 69.0
-offset_bottom = 13.5
-grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-max_value = 1000.0
-value = 1000.0
-show_percentage = false
-
 [node name="FlashLight" type="PointLight2D" parent="."]
 position = Vector2(0.035956, 1.46916)
 scale = Vector2(0.171912, 0.208647)
@@ -44,6 +28,18 @@ shadow_enabled = true
 texture = ExtResource("3_6rv0v")
 offset = Vector2(465, -4.645)
 script = ExtResource("4_kv2ns")
+
+[node name="ProgressBar" type="ProgressBar" parent="FlashLight"]
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 1000.0
+value = 1000.0
+
+[node name="PointLightPlayer" type="PointLight2D" parent="."]
+scale = Vector2(0.2, 0.2)
+energy = 0.32
+texture = ExtResource("5_fog8x")
+texture_scale = 2.0
 
 [node name="GhostFlashLight" type="PointLight2D" parent="."]
 visible = false
@@ -61,10 +57,3 @@ position = Vector2(-15.2347, 4.88073)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GhostFlashLight/Area2D"]
 position = Vector2(15.2347, 0)
 polygon = PackedVector2Array(-15.21, 3.4188, 500, 50, 500, -50)
-
-[node name="PointLightPlayer" type="PointLight2D" parent="."]
-light_mask = 3
-scale = Vector2(0.2, 0.2)
-energy = 0.32
-texture = ExtResource("5_fog8x")
-texture_scale = 2.0

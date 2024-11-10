@@ -7,8 +7,26 @@ var speed = 100
 var collision
 
 @export var enemy: Node2D
+@onready var light = $FlashLight
+@onready var flashlightGhost = $GhostFlashLight
+@onready var progressBar = $ProgressBar
 
+func _input(event: InputEvent) -> void:
 
+	if Input.is_action_pressed("Toggle") and progressBar.value > 0 and !Input.is_action_pressed("Toggle2"):
+		light.show()
+		light.visible = true
+	else:
+		light.hide()
+		light.visible = false
+		
+	if Input.is_action_pressed("Toggle2") and progressBar.value > 0 and !Input.is_action_pressed("Toggle"):
+		flashlightGhost.show()
+		flashlightGhost.visible
+	else:
+		flashlightGhost.hide()
+		flashlightGhost.visible = false
+			
 
 func _process(delta):
 
@@ -22,11 +40,14 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 	
-	if Input.is_action_just_pressed("F"):
-		$FlashLight.visible = !$FlashLight.visible
-		$GhostFlashLight.visible = !$GhostFlashLight.visible
-		
 	
+		
+		#when the light is turned on drain the battery 
+	if light.visible == true or flashlightGhost.visible == true: 
+		progressBar.value -= 1
+		#when the light is turned off recharge the battery 
+	else:
+		progressBar.value += 0.5
 		
 
 	if direction != Vector2.ZERO:
