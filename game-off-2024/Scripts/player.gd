@@ -12,24 +12,24 @@ var collision
 @onready var progressBar = $ProgressBar
 
 func _input(event: InputEvent) -> void:
-
+#if the left mouse is pressed turn on the flashlight
 	if Input.is_action_pressed("Toggle") and progressBar.value > 0 and !Input.is_action_pressed("Toggle2"):
 		light.show()
 		light.visible = true
-	else:
+	else: #turn the light off
 		light.hide()
 		light.visible = false
-		
+#if the right mouse is pressed turn on the flashlight		
 	if Input.is_action_pressed("Toggle2") and progressBar.value > 0 and !Input.is_action_pressed("Toggle"):
 		flashlightGhost.show()
 		flashlightGhost.visible
-	else:
+	else: #turn light off
 		flashlightGhost.hide()
 		flashlightGhost.visible = false
 			
 
 func _process(delta):
-
+	#player movement controlls
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
@@ -40,8 +40,6 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 	
-	
-		
 		#when the light is turned on drain the battery 
 	if light.visible == true or flashlightGhost.visible == true: 
 		progressBar.value -= 1
