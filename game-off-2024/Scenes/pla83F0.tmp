@@ -63,7 +63,7 @@ position = Vector2(-15.2347, 4.88073)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GhostFlashLight/Area2D"]
 visible = false
 position = Vector2(15.2347, 0)
-polygon = PackedVector2Array(0, 0, 600, 150, 600, -150)
+polygon = PackedVector2Array(0, 0, 500, 100, 500, -100)
 
 [node name="PointLightPlayer" type="PointLight2D" parent="."]
 light_mask = 3
@@ -71,3 +71,5 @@ scale = Vector2(0.2, 0.2)
 energy = 0.32
 texture = ExtResource("5_fog8x")
 texture_scale = 2.0
+
+[connection signal="area_entered" from="GhostFlashLight/Area2D" to="GhostFlashLight" method="secret_area_entered"]
