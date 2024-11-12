@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cldo14d6fnlqs"]
+[gd_scene load_steps=4 format=3 uid="uid://cldo14d6fnlqs"]
 
 [ext_resource type="Script" path="res://Scripts/foot_step.gd" id="1_go6x6"]
 [ext_resource type="Texture2D" uid="uid://68cj3dmnvr2t" path="res://Assets/sprites/black_square.png" id="1_n3p35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hickk"]
+size = Vector2(480, 480)
 
 [node name="FootStep" type="Node2D"]
 
@@ -9,3 +12,14 @@
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_n3p35")
 script = ExtResource("1_go6x6")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.86102e-05, 2.86102e-05)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hickk")
+
+[connection signal="area_entered" from="Area2D" to="Sprite2D" method="flashlight_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Sprite2D" method="flashlight_area_exited"]
