@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cja2yh5a1khay"
+path="res://.godot/imported/Ambient Wind (7).mp3-f43b39d1e091a28082a8601b6a1affb2.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/level sounds/Ambient Wind (7).mp3"
+dest_files=["res://.godot/imported/Ambient Wind (7).mp3-f43b39d1e091a28082a8601b6a1affb2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

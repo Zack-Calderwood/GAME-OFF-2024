@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxuk8ds8vl7m1"
+path="res://.godot/imported/Breathing_slow.wav-3259407aa3759cb3e8d767d2033f21ca.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/player sounds/Breathing_slow.wav"
+dest_files=["res://.godot/imported/Breathing_slow.wav-3259407aa3759cb3e8d767d2033f21ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

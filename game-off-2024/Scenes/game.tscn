@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="2_lftwq"]
-[ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/Solaria Demo Tiles.png" id="4_b575t"]
+[ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/Solaria Demo Tiles.png" id="4_b575t"]
 [ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://Scenes/enemy.tscn" id="5_1h8ef"]
 [ext_resource type="PackedScene" uid="uid://o27a5brw3l0s" path="res://Scenes/game_manager.tscn" id="7_iyoej"]
 [ext_resource type="Script" path="res://Scripts/score_label.gd" id="8_k26gt"]
@@ -508,7 +508,7 @@ tile_map_data = PackedByteArray("AAAjABMAAAAOAAkAAAAjABIAAAANAAoAAAAjABEAAAANAAo
 tile_set = SubResource("TileSet_kl1fu")
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(-432, -184)
+position = Vector2(-427, -585)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)

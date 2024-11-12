@@ -10,22 +10,28 @@ var collision
 @onready var light = $FlashLight
 @onready var flashlightGhost = $GhostFlashLight
 @onready var progressBar = $ProgressBar
+@onready var walkingSFX = $sfx_walking
+@onready var switchSFX = $sfx_switch
+
+var flashON = false
+
 
 func _input(event: InputEvent) -> void:
+	
+		
 #if the left mouse is pressed turn on the flashlight
-	if Input.is_action_pressed("Toggle") and progressBar.value > 0 and !Input.is_action_pressed("Toggle2"):
-		light.show()
-		light.visible = true
-	else: #turn the light off
-		light.hide()
-		light.visible = false
+	if Input.is_action_just_pressed("Toggle") and progressBar.value > 0 and !flashlightGhost.visible:
+		
+		flashON = !flashON
+		toggle_Flash_Light(light)
+		
 #if the right mouse is pressed turn on the flashlight		
-	if Input.is_action_pressed("Toggle2") and progressBar.value > 0 and !Input.is_action_pressed("Toggle"):
-		flashlightGhost.show()
-		flashlightGhost.visible
-	else: #turn light off
-		flashlightGhost.hide()
-		flashlightGhost.visible = false
+
+	if Input.is_action_just_pressed("Toggle2") and progressBar.value > 0 and !light.visible:
+	
+		flashON = !flashON
+		toggle_Flash_Light(flashlightGhost)
+	
 			
 
 func _process(delta):
@@ -33,18 +39,22 @@ func _process(delta):
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
+		walkingSFX.play()
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
+		walkingSFX.play()
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
+		walkingSFX.play()
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
+		walkingSFX.play()
 	
 		#when the light is turned on drain the battery 
 	if light.visible == true or flashlightGhost.visible == true: 
 		progressBar.value -= 1
 		#when the light is turned off recharge the battery 
-	else:
+	elif light.visible == false and flashlightGhost.visible == false and !Input.is_action_pressed("Toggle2") and !Input.is_action_pressed("Toggle"):
 		progressBar.value += 0.5
 		
 
@@ -58,8 +68,11 @@ func _process(delta):
 	move_and_slide()
 	door_push()
 	
-	
-	
+func toggle_Flash_Light(Light):
+		switchSFX.play()
+		Light.visible = flashON
+		
+
 func door_push():
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)

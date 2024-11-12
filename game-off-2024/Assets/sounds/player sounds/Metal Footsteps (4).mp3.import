@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5cgx4y6cjr5f"
+path="res://.godot/imported/Metal Footsteps (4).mp3-b60c6e1bd29ccad1d78f99577727c5a1.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/player sounds/Metal Footsteps (4).mp3"
+dest_files=["res://.godot/imported/Metal Footsteps (4).mp3-b60c6e1bd29ccad1d78f99577727c5a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

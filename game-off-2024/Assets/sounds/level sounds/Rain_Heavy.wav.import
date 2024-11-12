@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bthogpsm4yrnl"
+path="res://.godot/imported/Rain_Heavy.wav-7c17d7d662f0b174d4044572a27c9cdc.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/level sounds/Rain_Heavy.wav"
+dest_files=["res://.godot/imported/Rain_Heavy.wav-7c17d7d662f0b174d4044572a27c9cdc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
