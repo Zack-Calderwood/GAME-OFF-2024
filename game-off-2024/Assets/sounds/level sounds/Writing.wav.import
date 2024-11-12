@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://du3ngi7edttuk"
-path="res://.godot/imported/writing.wav-3ed853988aa79849255db448d38188d2.sample"
+path="res://.godot/imported/Writing.wav-b422b4c17489923994baddc8f84cb535.sample"
 
 [deps]
 
-source_file="res://Assets/sounds/level sounds/writing.wav"
-dest_files=["res://.godot/imported/writing.wav-3ed853988aa79849255db448d38188d2.sample"]
+source_file="res://Assets/sounds/level sounds/Writing.wav"
+dest_files=["res://.godot/imported/Writing.wav-b422b4c17489923994baddc8f84cb535.sample"]
 
 [params]
 

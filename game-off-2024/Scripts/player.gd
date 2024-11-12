@@ -23,19 +23,21 @@ func _input(event: InputEvent) -> void:
 		flashlightGhost.visible = false	
 		
 #if the left mouse is pressed turn on the flashlight
-	if Input.is_action_just_pressed("Toggle") and progressBar.value > 0 and !flashlightGhost.visible:
+	if Input.is_action_just_pressed("Toggle") and progressBar.value > 0:
 		
 		flashON = !flashON
 		toggle_Flash_Light(light)
+		flashlightGhost.visible = false
+		
 		
 #if the right mouse is pressed turn on the flashlight		
 
-	if Input.is_action_just_pressed("Toggle2") and progressBar.value > 0 and !light.visible:
+	if Input.is_action_just_pressed("Toggle2") and progressBar.value > 0:
 	
 		flashON = !flashON
 		toggle_Flash_Light(flashlightGhost)
-	
-			
+		light.visible = false 
+
 
 func _process(delta):
 	#player movement controlls
@@ -73,7 +75,7 @@ func _process(delta):
 	
 func toggle_Flash_Light(Light):
 		switchSFX.play()
-		Light.visible = flashON
+		Light.visible = !Light.visible #change this back to Light.visible = flashON
 		
 
 func door_push():

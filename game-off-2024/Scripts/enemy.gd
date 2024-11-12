@@ -95,7 +95,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			change_state(EnemyState.SEARCH)
 			currentTarget = player
 			timerState.start()
-			timer.start()
 			print("body entered")
 			
 			
@@ -160,6 +159,7 @@ func vision_cone_detect(delta: float, look_speed: float) -> void:
 
 func _on_change_state_timeout() -> void:
 	print("End searching for player")
+	find_new_target()
 	change_state(EnemyState.PATROL)
 	pass # Replace with function body.
 	

@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/score_label.gd" id="8_k26gt"]
 [ext_resource type="PackedScene" uid="uid://dl6inba4bo10p" path="res://Scenes/Door.tscn" id="8_l8ale"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
-[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
+[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
