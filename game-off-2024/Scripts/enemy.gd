@@ -69,6 +69,7 @@ func handle_patrol_state(delta: float):
 	pass
 
 func handle_chase_state(delta: float):
+	timerState.stop()
 	enemy_at_location()
 	vision_cone_detect(delta,10)
 	move_and_slide()
@@ -197,3 +198,6 @@ func call_with_delay(func_name: String, delay: float, times: int) -> void:
 		await $Timer.timeout
 		call(func_name)
 	change_state(EnemyState.PATROL)
+
+func get_state() -> EnemyState :
+	return state

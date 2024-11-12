@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwv6x1dinc7oc"]
+
+[ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/player.png" id="1_kc6fy"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_sopi6"]
+[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/light_cone.png" id="3_e7lxw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixssr"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fkqvc"]
+radius = 24.1311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0j42"]
+radius = 3.10078
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 4
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_sopi6")
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(0.862608, 4.76837e-07)
+scale = Vector2(0.0567132, 0.053)
+color = Color(0.709628, 0.0210424, 3.85046e-07, 1)
+shadow_enabled = true
+texture = ExtResource("3_e7lxw")
+offset = Vector2(450.29, -0.38)
+
+[node name="Area2D" type="Area2D" parent="FlashLight"]
+position = Vector2(-15.2347, 4.88073)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlashLight/Area2D"]
+position = Vector2(15.2347, 0)
+polygon = PackedVector2Array(-15.21, 3.4188, 500, 50, 500, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.55, 0)
+scale = Vector2(0.926667, 1)
+texture = ExtResource("1_kc6fy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(0.876395, 0.155007, 0, 1)
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.5
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+visibility_layer = 3
+shape = SubResource("CircleShape2D_ixssr")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.525, 1.525)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fkqvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(1.032, 1)
+shape = SubResource("CircleShape2D_t0j42")
+disabled = true
+
+[node name="LOS_Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer2" to="." method="_on_change_state_timeout"]
+[connection signal="area_shape_entered" from="TouchArea" to="." method="_on_touch_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="TouchArea" to="." method="_on_touch_area_area_shape_exited"]
+[connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_player_exit_body_exited"]
+[connection signal="timeout" from="LOS_Timer" to="." method="los_timer_timeout"]

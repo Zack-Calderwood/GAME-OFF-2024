@@ -516,6 +516,8 @@ zoom = Vector2(2.595, 2.595)
 script = ExtResource("9_imr2k")
 player = NodePath("..")
 enemy = NodePath("../../Enemy")
+randomStrength = null
+shakeFade = null
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("last_location", "player") instance=ExtResource("5_1h8ef")]
 position = Vector2(424, 216)
