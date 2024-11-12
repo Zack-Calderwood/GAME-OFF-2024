@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=25 format=4 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/score_label.gd" id="8_k26gt"]
 [ext_resource type="PackedScene" uid="uid://dl6inba4bo10p" path="res://Scenes/Door.tscn" id="8_l8ale"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
+[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
@@ -508,7 +509,7 @@ tile_map_data = PackedByteArray("AAAjABMAAAAOAAkAAAAjABIAAAANAAoAAAAjABEAAAANAAo
 tile_set = SubResource("TileSet_kl1fu")
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(-427, -585)
+position = Vector2(-481, -58)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
@@ -567,6 +568,11 @@ script = ExtResource("8_k26gt")
 libraries = {
 "": SubResource("AnimationLibrary_aufr1")
 }
+
+[node name="sfx_writing" type="AudioStreamPlayer2D" parent="canvisLayer/ScoreLabel"]
+stream = ExtResource("10_8yvlv")
+volume_db = 6.952
+pitch_scale = 0.83
 
 [node name="LastLocation" type="Node2D" parent="."]
 position = Vector2(424, 216)

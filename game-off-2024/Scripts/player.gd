@@ -18,6 +18,9 @@ var flashON = false
 
 func _input(event: InputEvent) -> void:
 	
+	if progressBar.value == 0:
+		light.visible = false
+		flashlightGhost.visible = false	
 		
 #if the left mouse is pressed turn on the flashlight
 	if Input.is_action_just_pressed("Toggle") and progressBar.value > 0 and !flashlightGhost.visible:
@@ -39,22 +42,22 @@ func _process(delta):
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		walkingSFX.play()
+		
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		walkingSFX.play()
+		
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
-		walkingSFX.play()
+		
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-		walkingSFX.play()
+		
 	
 		#when the light is turned on drain the battery 
 	if light.visible == true or flashlightGhost.visible == true: 
 		progressBar.value -= 1
 		#when the light is turned off recharge the battery 
-	elif light.visible == false and flashlightGhost.visible == false and !Input.is_action_pressed("Toggle2") and !Input.is_action_pressed("Toggle"):
+	elif light.visible == false and flashlightGhost.visible == false :
 		progressBar.value += 0.5
 		
 

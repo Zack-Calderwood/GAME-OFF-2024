@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://df6drajyppg1f"]
+[gd_scene load_steps=13 format=3 uid="uid://df6drajyppg1f"]
 
 [ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/player.png" id="1_1pnra"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_p2k4j"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bxdd6swkixmb5" path="res://Assets/sprites/light.png" id="5_fog8x"]
 [ext_resource type="AudioStream" uid="uid://baqbyvdq5lr2r" path="res://Assets/sounds/player sounds/Footsteps_ running.wav" id="6_eetpg"]
 [ext_resource type="AudioStream" uid="uid://dggs5xfngyrei" path="res://Assets/sounds/player sounds/switch.wav" id="7_ybqno"]
+[ext_resource type="AudioStream" uid="uid://de321n1q70urp" path="res://Assets/sounds/player sounds/Concrete Footsteps (1).mp3" id="8_57im0"]
+[ext_resource type="AudioStream" uid="uid://bxuk8ds8vl7m1" path="res://Assets/sounds/player sounds/Breathing_slow.wav" id="9_uodn8"]
+[ext_resource type="AudioStream" uid="uid://dcb60wfxc66cg" path="res://Assets/sounds/player sounds/Breathing_fast.wav" id="10_qqx3a"]
+[ext_resource type="AudioStream" uid="uid://cpbcet5fufreh" path="res://Assets/sounds/monster sounds/jumpscarePiano.wav" id="11_0o6gt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcxtd"]
 radius = 8.0
@@ -75,9 +79,23 @@ energy = 0.32
 texture = ExtResource("5_fog8x")
 texture_scale = 2.0
 
-[node name="sfx_walking" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_walking_outside" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_eetpg")
-volume_db = -16.0
 
 [node name="sfx_switch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ybqno")
+
+[node name="sfx_walking_inside" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_57im0")
+
+[node name="sfx_breathing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_uodn8")
+volume_db = 10.0
+
+[node name="sfx_fast_breathing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_qqx3a")
+volume_db = 10.0
+
+[node name="sfx_jumpscare" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_0o6gt")
+volume_db = 6.0
