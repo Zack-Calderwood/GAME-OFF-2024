@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="2_lftwq"]
+[ext_resource type="Texture2D" uid="uid://cmbcrvl038g5j" path="res://Assets/sprites/map_for_outside.png" id="3_t3ylt"]
 [ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/Solaria Demo Tiles.png" id="4_b575t"]
 [ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://Scenes/enemy.tscn" id="5_1h8ef"]
 [ext_resource type="PackedScene" uid="uid://o27a5brw3l0s" path="res://Scenes/game_manager.tscn" id="7_iyoej"]
@@ -13,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
 [ext_resource type="PackedScene" uid="uid://di2mvjyfd0fg8" path="res://Scenes/cryptsLVL.tscn" id="12_fy0nc"]
-[ext_resource type="Texture2D" uid="uid://okvbqhppirqd" path="res://Assets/sprites/map 1.0.png" id="14_hlab8"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -507,11 +507,11 @@ enemy_node = NodePath("../Enemy")
 game_manager_path = NodePath("../GameManager")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 2867.0
-offset_top = -2206.0
-offset_right = 7153.0
-offset_bottom = 883.0
-texture = ExtResource("14_hlab8")
+offset_left = 3306.0
+offset_top = -2954.0
+offset_right = 7592.0
+offset_bottom = 135.0
+texture = ExtResource("3_t3ylt")
 stretch_mode = 4
 
 [node name="Layer1" type="TileMapLayer" parent="."]
@@ -520,7 +520,7 @@ tile_map_data = PackedByteArray("AAAjABMAAAAOAAkAAAAjABIAAAANAAoAAAAjABEAAAANAAo
 tile_set = SubResource("TileSet_kl1fu")
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(-422, -179)
+position = Vector2(4059, -224)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player", "enemy")]
 zoom = Vector2(2.595, 2.595)
@@ -538,7 +538,7 @@ light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
-color = Color(0.442911, 0.442911, 0.442911, 1)
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)

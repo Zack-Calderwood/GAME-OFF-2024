@@ -16,8 +16,11 @@ var collision
 var flashON = false
 
 
-func _input(event: InputEvent) -> void:
 	
+	
+
+
+func _process(delta):
 	if progressBar.value == 0:
 		light.visible = false
 		flashlightGhost.visible = false	
@@ -37,9 +40,6 @@ func _input(event: InputEvent) -> void:
 		flashON = !flashON
 		toggle_Flash_Light(flashlightGhost)
 		light.visible = false 
-
-
-func _process(delta):
 	#player movement controlls
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
