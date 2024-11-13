@@ -5,6 +5,9 @@ extends Node2D
 var spawned_objects = []
 var score = 0
 var win = "res://Scenes/winScreen.tscn"
+@onready var noteSound = $sfx_notePickup
+@onready var writing = $sfx_writing
+
 
 func _ready() -> void:
 	Events.note_Picked_Up.connect(remove_spawned_object)
@@ -15,7 +18,8 @@ func add_spawned_object(object):
 
 #removes note from the array when player picks it up
 func remove_spawned_object(object):
-	
+	noteSound.play()
+	#writing.play()
 	score += 1
 	Events.score_update.emit(score)
 	print("you have" , score , " notes")
