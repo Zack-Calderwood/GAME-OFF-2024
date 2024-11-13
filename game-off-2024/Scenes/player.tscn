@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://df6drajyppg1f"]
+[gd_scene load_steps=14 format=3 uid="uid://df6drajyppg1f"]
 
 [ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/player.png" id="1_1pnra"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_p2k4j"]
+[ext_resource type="Texture2D" uid="uid://b2f3rseryygtf" path="res://Assets/sprites/light_cone_brushed.png" id="3_1rbt8"]
 [ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/light_cone.png" id="3_6rv0v"]
 [ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="4_kv2ns"]
 [ext_resource type="Texture2D" uid="uid://bxdd6swkixmb5" path="res://Assets/sprites/light.png" id="5_fog8x"]
@@ -49,7 +50,7 @@ light_mask = 2
 position = Vector2(0.035956, 1.46916)
 scale = Vector2(0.171912, 0.208647)
 shadow_enabled = true
-texture = ExtResource("3_6rv0v")
+texture = ExtResource("3_1rbt8")
 offset = Vector2(465, -4.645)
 script = ExtResource("4_kv2ns")
 

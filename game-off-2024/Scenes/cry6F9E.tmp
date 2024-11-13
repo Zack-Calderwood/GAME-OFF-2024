@@ -406,6 +406,8 @@ sources/0 = SubResource("TileSetAtlasSource_2uhb2")
 
 [node name="CryptsLvl" type="Node2D"]
 script = ExtResource("1_nad6r")
+puzzle_array = [NodePath("candle"), NodePath("candle2"), NodePath("candle3"), NodePath("candle4")]
+puzzle_attempt_array = [null, null, null, null]
 
 [node name="Layer1" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -413,13 +415,13 @@ tile_map_data = PackedByteArray("AADj/+D/AAAOAAkAAADj/+H/AAAOAAkAAADj/+L/AAAOAAk
 tile_set = SubResource("TileSet_jbvlg")
 
 [node name="candle" parent="." instance=ExtResource("3_fg61t")]
-position = Vector2(-320, 0)
+position = Vector2(-128, 0)
 
 [node name="candle2" parent="." instance=ExtResource("3_fg61t")]
-position = Vector2(-192, 0)
+position = Vector2(-80, 0)
 
 [node name="candle3" parent="." instance=ExtResource("3_fg61t")]
-position = Vector2(-64, 0)
+position = Vector2(-32, 0)
 
 [node name="candle4" parent="." instance=ExtResource("3_fg61t")]
-position = Vector2(64, 0)
+position = Vector2(16, 0)

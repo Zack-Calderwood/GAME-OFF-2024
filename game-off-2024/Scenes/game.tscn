@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=26 format=4 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
 [ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
+[ext_resource type="PackedScene" uid="uid://di2mvjyfd0fg8" path="res://Scenes/cryptsLVL.tscn" id="12_fy0nc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -509,7 +510,7 @@ tile_map_data = PackedByteArray("AAAjABMAAAAOAAkAAAAjABIAAAANAAoAAAAjABEAAAANAAo
 tile_set = SubResource("TileSet_kl1fu")
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(-481, -58)
+position = Vector2(-416, -161)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player", "enemy")]
 zoom = Vector2(2.595, 2.595)
@@ -527,6 +528,7 @@ light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
+color = Color(0.442911, 0.442911, 0.442911, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)
@@ -602,3 +604,6 @@ position = Vector2(-360, -224)
 
 [node name="Secret2" parent="." instance=ExtResource("10_bb0li")]
 position = Vector2(-360, -136)
+
+[node name="CryptsLvl" parent="." instance=ExtResource("12_fy0nc")]
+position = Vector2(1072, 200)
