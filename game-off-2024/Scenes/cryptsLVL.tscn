@@ -1535,30 +1535,46 @@ layer_2/name = "Decorative"
 layer_2/tile_data = PackedInt32Array(131059, 327681, 1, 196595, 327681, 2, 65539, 589825, 1, 131075, 589825, 2, 786423, 65537, 1, 851959, 65537, 2, 917495, 65537, 3, 1703950, 65537, 1, 1769486, 65537, 2, 1835022, 65537, 3, 1769477, 131073, 2, 1835013, 131073, 3, 2162715, 655361, 1, 2228215, 720897, 1, 1572861, 786433, 1, 1507355, 851969, 1, 851995, 655361, 1, 851994, 720897, 1, 917531, 786433, 1, 917530, 655361, 1, 1245191, 327681, 1, 1310727, 327681, 2, 1245196, 327681, 1, 1310732, 327681, 2, 851982, 589825, 11, 851981, 720897, 11, 851980, 589825, 11, 851979, 786433, 11, 851976, 655361, 12, 851975, 655361, 11, 851974, 786433, 12, 851973, 851969, 12, 196620, 589825, 4, 262156, 589825, 5, 196621, 786433, 4, 262157, 786433, 5, 196622, 851969, 4, 262158, 851969, 5, 196623, 524289, 4, 262159, 524289, 5, 262160, 589825, 6, 262161, 524289, 6, 262154, 786433, 6, 262155, 851969, 6, 1245164, 1, 6, 1310700, 1, 7, 1245165, 65537, 6, 1310701, 65537, 7, 1245166, 131073, 6, 1310702, 131073, 7, 983020, 1, 4, 1048556, 1, 5, 983021, 65537, 4, 1048557, 65537, 5, 983022, 131073, 4, 1048558, 131073, 5, 720876, 1, 8, 786412, 1, 9, 720877, 65537, 8, 786413, 65537, 9, 720878, 131073, 8, 786414, 131073, 9, 458732, 1, 10, 524268, 1, 11, 458733, 65537, 10, 524269, 65537, 11, 458734, 131073, 10, 524270, 131073, 11, 2162675, 65537, 1, 2228211, 65537, 2, 2293747, 65537, 3, 1245156, 65537, 1, 1310692, 65537, 2, 1376228, 65537, 3, 1376236, 720897, 1, 589804, 655361, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(436, 546)
+position = Vector2(437, 535)
 shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(426, 218)
+position = Vector2(441, 382)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(440, 219)
+position = Vector2(442, 220)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
-position = Vector2(420, 237)
+position = Vector2(423, 221)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D5" type="PointLight2D" parent="."]
-position = Vector2(-40, 373)
+position = Vector2(422, 241)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D6" type="PointLight2D" parent="."]
-position = Vector2(-135, 536)
+position = Vector2(-40, 378)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="PointLight2D7" type="PointLight2D" parent="."]
-position = Vector2(-310, 138)
+position = Vector2(-137, 535)
+shadow_enabled = true
+texture = ExtResource("4_g62jf")
+
+[node name="PointLight2D8" type="PointLight2D" parent="."]
+position = Vector2(-313, 326)
+shadow_enabled = true
+texture = ExtResource("4_g62jf")
+
+[node name="PointLight2D9" type="PointLight2D" parent="."]
+position = Vector2(-313, 139)
+shadow_enabled = true
 texture = ExtResource("4_g62jf")
