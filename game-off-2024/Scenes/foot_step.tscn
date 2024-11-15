@@ -18,7 +18,6 @@ scale = Vector2(0.1, 0.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2.86102e-05, 2.86102e-05)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hickk")
 
 [connection signal="area_entered" from="Area2D" to="Sprite2D" method="flashlight_area_entered"]

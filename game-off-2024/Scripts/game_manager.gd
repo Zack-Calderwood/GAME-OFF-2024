@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-var spawned_objects = []
+@export var spawned_objects = []
 var score = 0
 var win = "res://Scenes/winScreen.tscn"
 @onready var noteSound = $sfx_notePickup
@@ -10,11 +10,13 @@ var win = "res://Scenes/winScreen.tscn"
 
 
 func _ready() -> void:
+	spawned_objects = [$"../CryptsLvl/candle",$"../CryptsLvl/candle2",$"../CryptsLvl/candle3",$"../CryptsLvl/candle4"]
 	Events.note_Picked_Up.connect(remove_spawned_object)
 	
 #spawns in notes to the map
 func add_spawned_object(object):
-	spawned_objects.append(object)
+	pass
+	#spawned_objects.append(object)
 
 #removes note from the array when player picks it up
 func remove_spawned_object(object):

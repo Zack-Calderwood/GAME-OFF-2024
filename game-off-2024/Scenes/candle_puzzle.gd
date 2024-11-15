@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 func player_entered(area: Area2D) -> void:
 	cryptsPuzzle.add_to_array(self)
 	toggle_lit()
-	print("pos: " , position_in_array, "syb: " , symbol)
 	pass # Replace with function body.
 	
 func toggle_lit()->void:

@@ -16,10 +16,6 @@ var collision
 var flashON = false
 
 
-	
-	
-
-
 func _process(delta):
 	if progressBar.value == 0:
 		light.visible = false

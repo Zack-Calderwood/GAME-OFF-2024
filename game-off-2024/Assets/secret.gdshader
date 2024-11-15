@@ -26,7 +26,7 @@ void fragment() {
     if (dist < light_radius) {
         // Sample the light color at this point (approximated as `target_light_color`)
         vec3 light_color = target_light_color;  // Simulated light color
-        
+
         // Calculate the difference between the current light color and the target color
         float color_difference = distance(light_color, target_light_color);
 

@@ -82,7 +82,7 @@ func handle_search_state(delta: float):
 func find_new_target():
 	print("find new target")
 	var pos = game_manager.spawned_objects
-	var newNum = randi_range(0,4)
+	var newNum = randi_range(0,3)
 	
 	if newNum != randomNumber :
 		currentTarget = pos[newNum]
@@ -124,7 +124,7 @@ func vision_cone_detect(delta: float, look_speed: float) -> void:
 	var detected = false 
 	
 	for i in range(ray_count):
-		angle_to_target = global_position.angle_to_point(currentTarget.position)
+		angle_to_target = global_position.angle_to_point(currentTarget.global_position)
 		var angle = deg_to_rad(-cone_angle / 2 + cone_angle * i / (ray_count - 1))
 		var direction = Vector2(cos(angle_to_target), sin(angle_to_target))
 		var ray = get_child(i + 9)  # this need to be revisted can't have 6 here 
@@ -150,7 +150,7 @@ func vision_cone_detect(delta: float, look_speed: float) -> void:
 		seesPlayer = false 
 
 	
-	var lightPos = currentTarget.position
+	var lightPos = currentTarget.global_position
 
 	var dire = lightPos - global_position
 
@@ -179,8 +179,8 @@ func enemy_check_location(gameObject: Node2D) -> void:
 	pass
 	
 func enemy_at_location() -> void: 
-	var offsetLocation = 2
-	if position.distance_to(currentTarget.position) <= offsetLocation:
+	var offsetLocation = 5
+	if position.distance_to(currentTarget.global_position) <= offsetLocation:
 		print("at location")
 		change_state(EnemyState.SEARCH)
 		call_with_delay("find_new_target", 1.0, 5)	
