@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
 
-var speed = 100
+var speed = 75
 var collision
 
 @export var enemy: Node2D
@@ -17,6 +17,11 @@ var flashON = false
 
 
 func _process(delta):
+	
+#	if Input.is_action_pressed("Inv")
+		#when tab is pressed open and close the inventory
+		
+	
 	if progressBar.value == 0:
 		light.visible = false
 		flashlightGhost.visible = false	
@@ -56,7 +61,7 @@ func _process(delta):
 		progressBar.value -= 1
 		#when the light is turned off recharge the battery 
 	elif light.visible == false and flashlightGhost.visible == false :
-		progressBar.value += 0.5
+		progressBar.value += 1.5
 		
 
 	if direction != Vector2.ZERO:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwv6x1dinc7oc"]
 
-[ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/player.png" id="1_kc6fy"]
+[ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/placeholder sprites/player.png" id="1_kc6fy"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_sopi6"]
-[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/light_cone.png" id="3_e7lxw"]
+[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/player sprites/light_cone.png" id="3_e7lxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixssr"]
 radius = 8.0

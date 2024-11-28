@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://sxr4kc62qgsa"]
 
-[ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/Solaria Demo Tiles.png" id="1_6mrc2"]
+[ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/placeholder sprites/Solaria Demo Tiles.png" id="1_6mrc2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7gmdn"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

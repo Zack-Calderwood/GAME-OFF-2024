@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr06qprjpuru1"]
+
+[ext_resource type="AudioStream" uid="uid://bthogpsm4yrnl" path="res://Assets/sounds/level sounds/Rain_Heavy.wav" id="1_k2vwi"]
+[ext_resource type="AudioStream" uid="uid://ddix4eflcohbd" path="res://Assets/sounds/level sounds/lightning-237994.mp3" id="2_ti4wp"]
+[ext_resource type="AudioStream" uid="uid://cpoopj21qceqg" path="res://Assets/sounds/level sounds/lightning-strike-27463.mp3" id="3_50r74"]
+[ext_resource type="AudioStream" uid="uid://cja2yh5a1khay" path="res://Assets/sounds/level sounds/Ambient Wind (7).mp3" id="4_8hypi"]
+
+[node name="rain" type="AudioStreamPlayer2D"]
+position = Vector2(4307, -657)
+stream = ExtResource("1_k2vwi")
+autoplay = true
+bus = &"ambiant"
+
+[node name="lightning" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ti4wp")
+volume_db = -4.0
+autoplay = true
+bus = &"ambiant"
+
+[node name="lightning2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_50r74")
+volume_db = -4.0
+autoplay = true
+bus = &"ambiant"
+
+[node name="wind" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1119, -121)
+stream = ExtResource("4_8hypi")
+autoplay = true
+max_distance = 4000.0
+bus = &"ambiant"

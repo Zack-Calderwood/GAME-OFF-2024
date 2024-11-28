@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhde1fhsfepbu"]
 
-[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/light_cone.png" id="1_83dwd"]
+[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/player sprites/light_cone.png" id="1_83dwd"]
 [ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="2_8y08v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_slfft"]
