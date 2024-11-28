@@ -800,7 +800,7 @@ light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
-color = Color(0.856067, 0.856067, 0.856067, 1)
+color = Color(0.172833, 0.172832, 0.172833, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)

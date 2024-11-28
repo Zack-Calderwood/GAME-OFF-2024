@@ -1,19 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx0gvpujvjggc"]
+[gd_scene load_steps=17 format=3 uid="uid://dx0gvpujvjggc"]
 
 [ext_resource type="Texture2D" uid="uid://cduksi6mpghpe" path="res://Assets/sprites/church main/church_map_main_bg.png" id="1_ydqvt"]
 [ext_resource type="Texture2D" uid="uid://cka7i6ssh2kbq" path="res://Assets/sprites/church main/church_map_main_red_markings.png" id="2_tks3s"]
 [ext_resource type="Texture2D" uid="uid://djmg3ys2jjt4u" path="res://Assets/sprites/church main/church_map_main_objects.png" id="3_q4jv0"]
 [ext_resource type="Texture2D" uid="uid://tdsoua210lw6" path="res://Assets/sprites/church main/church_map_main_borders.png" id="4_vjqpx"]
 [ext_resource type="Texture2D" uid="uid://dtw4q3e4y86hw" path="res://Assets/sprites/church back/church_map_back_area_background.png" id="5_dguc4"]
+[ext_resource type="Script" path="res://Scenes/church_door.gd" id="5_rmlq5"]
+[ext_resource type="Script" path="res://Scripts/organ.gd" id="6_fvt6u"]
 [ext_resource type="Texture2D" uid="uid://1e2xtcy3xjw0" path="res://Assets/sprites/church back/church_map_back_area_borders.png" id="6_mihg7"]
+[ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_ea2he"]
 [ext_resource type="Texture2D" uid="uid://bhql0kpnripb5" path="res://Assets/sprites/church back/church_map_back_area_objects.png" id="7_ntq7k"]
 [ext_resource type="Texture2D" uid="uid://osvh75u6myy8" path="res://Assets/sprites/church back/red_markings.png" id="8_m2yju"]
+[ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="11_n5hnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
 size = Vector2(108.5, 119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxg1x"]
-size = Vector2(150, 192)
+size = Vector2(216.25, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq7d7"]
+size = Vector2(241.5, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8mn"]
+size = Vector2(99, 573)
 
 [node name="ChurchLvl" type="Node2D"]
 
@@ -40,7 +50,7 @@ offset_bottom = 2496.0
 texture = ExtResource("4_vjqpx")
 
 [node name="walls" type="CollisionPolygon2D" parent="main room"]
-polygon = PackedVector2Array(842, 1243, 842, 1582, 113, 1595, 111, 1080, 415, 1094, 1395, 1104, 1395, 1104, 1530, 1113, 1528, 915, 1687, 915, 1686, 1112, 2012, 1115, 2537, 1102, 2927, 1102, 2932, 1382, 3004, 1377, 3005, 1281, 3323, 1291, 3327, 1902, 3010, 1905, 3012, 1785, 3063, 1721, 3055, 1657, 3012, 1606, 3007, 1505, 2940, 1497, 2932, 1603, 2884, 1657, 2879, 1729, 2938, 1804, 2943, 2127, 2876, 2188, 2874, 2250, 1432, 2266, 1419, 2180, 1373, 2135, 1371, 1780, 1427, 1732, 1419, 1652, 1371, 1606, 1371, 1243, 845, 1245, 1276, 2437, 3182, 2453, 3588, 1662, 3412, 701, 1714, 589, 411, 589, -96, 776, -187, 1726, 742, 1844, 919, 1673)
+polygon = PackedVector2Array(842, 1243, 842, 1582, 113, 1595, 111, 1080, 415, 1094, 1395, 1104, 1395, 1104, 1530, 1113, 1527, 922, 1687, 915, 1686, 1112, 2012, 1115, 2537, 1102, 2927, 1102, 2932, 1382, 3004, 1377, 3005, 1281, 3323, 1291, 3327, 1902, 3010, 1905, 3012, 1785, 3063, 1721, 3055, 1657, 3012, 1606, 3007, 1505, 2940, 1497, 2932, 1603, 2884, 1657, 2879, 1729, 2938, 1804, 2943, 2127, 2876, 2188, 2874, 2250, 1432, 2266, 1419, 2180, 1373, 2135, 1371, 1780, 1427, 1732, 1419, 1652, 1371, 1606, 1371, 1243, 845, 1245, 1276, 2437, 3182, 2453, 3588, 1662, 3412, 701, 1714, 589, 411, 589, -96, 776, -187, 1726, 742, 1844, 919, 1673)
 
 [node name="benches" type="CollisionPolygon2D" parent="main room"]
 polygon = PackedVector2Array(1376, 1344, 1426, 1344, 1575, 1664, 1582, 1743, 1917, 1710, 1940, 1770, 1721, 1813, 1751, 1987, 1565, 2063, 1857, 2181, 1859, 2247, 1990, 2156, 2169, 2143, 2187, 2052, 2550, 2005, 2562, 2078, 2535, 2163, 2651, 2204, 2761, 2219, 2850, 1889, 2857, 1853, 2509, 1753, 2545, 1685, 2452, 1687, 2383, 1604, 2570, 1569, 2769, 1503, 2704, 1632, 2588, 1639, 2935, 1768, 2908, 2272, 1466, 2272, 1343, 1652)
@@ -52,9 +62,34 @@ shape = SubResource("RectangleShape2D_yde80")
 [node name="door" type="CollisionShape2D" parent="main room"]
 position = Vector2(1608, 1014)
 shape = SubResource("RectangleShape2D_nxg1x")
+script = ExtResource("5_rmlq5")
+
+[node name="organ" type="CollisionShape2D" parent="main room"]
+position = Vector2(2689, 1134)
+shape = SubResource("RectangleShape2D_jq7d7")
+script = ExtResource("6_fvt6u")
+
+[node name="floor" type="CollisionPolygon2D" parent="main room"]
+polygon = PackedVector2Array(2102, 1500, 1982, 1566, 1958, 1707, 2009, 1827, 2159, 1836, 2270, 1803, 2330, 1713, 2303, 1578, 2204, 1527)
+
+[node name="secret door" type="Area2D" parent="main room"]
+
+[node name="door to crypt" type="Polygon2D" parent="main room/secret door"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(2935, 1184, 2937, 1520, 3006, 1530, 3007, 1180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main room/secret door"]
+position = Vector2(2985, 1412)
+shape = SubResource("RectangleShape2D_uv8mn")
+
+[node name="start" type="CollisionPolygon2D" parent="main room"]
+polygon = PackedVector2Array(214, 1079, 211, 1160, 182, 1244, 305, 1348, 241, 1503, 668, 1502, 684, 1589, 107, 1610, 83, 1108, 92, 1066)
+
+[node name="Player" parent="main room" instance=ExtResource("7_ea2he")]
+position = Vector2(359, 1308)
 
 [node name="back room" type="StaticBody2D" parent="."]
-position = Vector2(-1, -2946)
+position = Vector2(5, -2962)
 
 [node name="background" type="TextureRect" parent="back room"]
 offset_right = 40.0
@@ -77,3 +112,25 @@ offset_top = -20.0
 offset_right = 2748.0
 offset_bottom = 2044.0
 texture = ExtResource("8_m2yju")
+
+[node name="walls" type="CollisionPolygon2D" parent="back room"]
+polygon = PackedVector2Array(674, 1765, 483, 1767, 491, 1954, 1347, 1954, 1350, 2057, 1516, 2062, 1516, 1959, 2642, 1951, 2640, 1692, 2574, 1674, 2579, 1508, 2484, 1510, 2494, 1684, 2378, 1674, 2282, 1757, 2081, 1765, 2073, 1858, 1947, 1856, 1939, 833, 1458, 810, 1448, 548, 1650, 543, 1647, 437, 1005, 429, 997, 543, 1335, 550, 1340, 918, 1647, 918, 1645, 1584, 1524, 1596, 1524, 1306, 1443, 1316, 1435, 1594, 1350, 1594, 1337, 1757, 843, 1767, 843, 1463, 1191, 1468, 1191, 1069, 836, 1082, 833, 1001, 669, 1057, 483, 1080, 153, 1075, 145, 1470, 669, 1470, 672, 1760, 133, 1682, 47, 880, 430, 235, 1065, 74, 1844, 215, 2393, 845, 2378, 1291, 2716, 1531, 2758, 2024, 1662, 2075, 1241, 2118, 344, 2035, 370, 1750)
+
+[node name="bookshelf" type="CollisionPolygon2D" parent="back room"]
+polygon = PackedVector2Array(288, 1324, 299, 1131, 1005, 1124, 1008, 1342)
+
+[node name="Note" parent="back room" instance=ExtResource("11_n5hnn")]
+position = Vector2(1392, 452)
+scale = Vector2(2, 2)
+
+[node name="Note2" parent="back room" instance=ExtResource("11_n5hnn")]
+position = Vector2(982, 1062)
+scale = Vector2(2, 2)
+
+[node name="Note3" parent="back room" instance=ExtResource("11_n5hnn")]
+position = Vector2(2534, 1607)
+scale = Vector2(2, 2)
+
+[node name="Note4" parent="back room" instance=ExtResource("11_n5hnn")]
+position = Vector2(2653, 4135)
+scale = Vector2(2, 2)
