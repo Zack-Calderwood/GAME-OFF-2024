@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://df6drajyppg1f"]
+
+[ext_resource type="Texture2D" uid="uid://uj57pmkcd16p" path="res://Assets/sprites/placeholder sprites/player.png" id="1_1pnra"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_p2k4j"]
+[ext_resource type="Texture2D" uid="uid://b2f3rseryygtf" path="res://Assets/sprites/player sprites/light_cone_brushed.png" id="3_1rbt8"]
+[ext_resource type="Texture2D" uid="uid://cmwta72rwcr68" path="res://Assets/sprites/player sprites/light_cone.png" id="3_6rv0v"]
+[ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="4_kv2ns"]
+[ext_resource type="Texture2D" uid="uid://bxdd6swkixmb5" path="res://Assets/sprites/player sprites/light.png" id="5_fog8x"]
+[ext_resource type="AudioStream" uid="uid://baqbyvdq5lr2r" path="res://Assets/sounds/player sounds/Footsteps_ running.wav" id="6_eetpg"]
+[ext_resource type="AudioStream" uid="uid://dggs5xfngyrei" path="res://Assets/sounds/player sounds/switch.wav" id="7_ybqno"]
+[ext_resource type="AudioStream" uid="uid://de321n1q70urp" path="res://Assets/sounds/player sounds/Concrete Footsteps (1).mp3" id="8_57im0"]
+[ext_resource type="AudioStream" uid="uid://bxuk8ds8vl7m1" path="res://Assets/sounds/player sounds/Breathing_slow.wav" id="9_uodn8"]
+[ext_resource type="AudioStream" uid="uid://dcb60wfxc66cg" path="res://Assets/sounds/player sounds/Breathing_fast.wav" id="10_qqx3a"]
+[ext_resource type="AudioStream" uid="uid://cpbcet5fufreh" path="res://Assets/sounds/monster sounds/jumpscarePiano.wav" id="11_0o6gt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcxtd"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_p2k4j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_1pnra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lcxtd")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+light_mask = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_right = 69.0
+offset_bottom = 13.5
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+visible = false
+light_mask = 2
+position = Vector2(0.035956, 1.46916)
+scale = Vector2(0.171912, 0.208647)
+shadow_enabled = true
+texture = ExtResource("3_1rbt8")
+offset = Vector2(465, -4.645)
+script = ExtResource("4_kv2ns")
+
+[node name="GhostFlashLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(8.24981, -5)
+scale = Vector2(0.476647, 0.602444)
+color = Color(0.854902, 0, 0.709804, 1)
+shadow_enabled = true
+texture = ExtResource("3_6rv0v")
+offset = Vector2(450.29, -0.38)
+script = ExtResource("4_kv2ns")
+
+[node name="Area2D" type="Area2D" parent="GhostFlashLight"]
+visible = false
+position = Vector2(-15.2347, 4.88073)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GhostFlashLight/Area2D"]
+visible = false
+position = Vector2(15.2347, 0)
+polygon = PackedVector2Array(0, 0, 600, 150, 600, -150)
+
+[node name="PointLightPlayer" type="PointLight2D" parent="."]
+light_mask = 3
+scale = Vector2(0.2, 0.2)
+energy = 0.32
+texture = ExtResource("5_fog8x")
+texture_scale = 2.0
+
+[node name="sfx_walking_outside" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eetpg")
+
+[node name="sfx_switch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ybqno")
+
+[node name="sfx_walking_inside" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_57im0")
+
+[node name="sfx_breathing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_uodn8")
+volume_db = 10.0
+
+[node name="sfx_fast_breathing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_qqx3a")
+volume_db = 10.0
+
+[node name="sfx_jumpscare" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_0o6gt")
+volume_db = 6.0

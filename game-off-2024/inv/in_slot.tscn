@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv31o4cn8j140"]
+
+[ext_resource type="Texture2D" uid="uid://bbgihcgdg0vga" path="res://inv/slot2.png" id="1_4uw3c"]
+[ext_resource type="Script" path="res://inv/in_slot.gd" id="1_dgwvw"]
+
+[node name="InSlot_UI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = -1
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_dgwvw")
+
+[node name="invslot" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4uw3c")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="note_display" type="Sprite2D" parent="CenterContainer/Panel"]

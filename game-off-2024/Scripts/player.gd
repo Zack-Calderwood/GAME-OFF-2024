@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
 
-var speed = 75
+var speed = 90
 var collision
 
 @export var enemy: Node2D
@@ -12,6 +12,8 @@ var collision
 @onready var progressBar = $ProgressBar
 @onready var walkingSFX = $sfx_walking
 @onready var switchSFX = $sfx_switch
+@export var inv: Inv
+
 
 var flashON = false
 
@@ -86,3 +88,5 @@ func door_push():
 			var push_force = (PUSH_FORCE*velocity.length()/speed ) + MIN_PUSH_FORCE
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 			
+func pickup(item):
+	inv.insert(item)
