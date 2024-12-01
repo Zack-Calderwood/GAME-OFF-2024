@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddqudre14y7qf"]
+[gd_scene load_steps=5 format=3 uid="uid://ddqudre14y7qf"]
 
 [ext_resource type="Script" path="res://CandleNote.gd" id="1_x6o5p"]
 [ext_resource type="Texture2D" uid="uid://okuimjyn46yr" path="res://Assets/sprites/player sprites/pages.png" id="2_5yca8"]
+[ext_resource type="Texture2D" uid="uid://68cj3dmnvr2t" path="res://Assets/sprites/placeholder sprites/black_square.png" id="3_q7nee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn1yk"]
+radius = 30.0666
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_x6o5p")
@@ -12,13 +14,25 @@ script = ExtResource("1_x6o5p")
 texture = ExtResource("2_5yca8")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 shape = SubResource("CircleShape2D_qn1yk")
 
-[node name="Label" type="Label" parent="."]
-offset_top = -38.0
-offset_right = 40.0
-offset_bottom = -15.0
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9.53674e-07, -37)
+scale = Vector2(0.228921, 0.104)
+texture = ExtResource("3_q7nee")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -250.006
+offset_top = -249.997
+offset_right = -180.006
+offset_bottom = -226.997
+scale = Vector2(6.66679, 21.9997)
+text = "ghhhhhh"
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
