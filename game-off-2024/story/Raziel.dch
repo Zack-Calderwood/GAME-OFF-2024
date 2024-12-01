@@ -8,13 +8,130 @@
 "sound_moods": {},
 "style": "style"
 },
-"default_portrait": "raziel_dialog",
+"default_portrait": "Group/raziel_dialog2",
 "description": "",
 "display_name": "Raziel",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
+"Group/abraham_dialog": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/abraham_dialog.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/adam": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/adam.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/eve": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/eve.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/evew": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/evew.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/light": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/light.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/light_cone": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/light_cone.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/light_cone_brushed": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/light_cone_brushed.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/mr_adam": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/mr_adam.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/mr_adamw": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/mr_adamw.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/pages": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/pages.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/raziel": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/raziel.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/raziel_dialog": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/raziel_dialog.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Group/raziel_dialog2": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/raziel_dialog2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "raziel_dialog": {
 "export_overrides": {
 "image": "\"res://Assets/sprites/player sprites/raziel_dialog.png\""

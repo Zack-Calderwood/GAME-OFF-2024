@@ -8,24 +8,22 @@
 [node name="rain" type="AudioStreamPlayer2D"]
 position = Vector2(4307, -657)
 stream = ExtResource("1_k2vwi")
+volume_db = 2.0
 autoplay = true
-bus = &"ambiant"
 
 [node name="lightning" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ti4wp")
-volume_db = -4.0
+volume_db = -15.0
 autoplay = true
-bus = &"ambiant"
 
 [node name="lightning2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_50r74")
-volume_db = -4.0
+volume_db = -10.0
 autoplay = true
-bus = &"ambiant"
 
 [node name="wind" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1119, -121)
 stream = ExtResource("4_8hypi")
+volume_db = -5.0
 autoplay = true
 max_distance = 4000.0
-bus = &"ambiant"

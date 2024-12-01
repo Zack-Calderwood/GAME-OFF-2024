@@ -59,14 +59,7 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 		animation.play("walk_up")
-	if Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_right"):
-		animation.play("walk_up")
-	if Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_left"):
-		animation.play("walk_up")
-	if Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_right"):
-		animation.play("walk_down")	
-	if Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_left"):
-		animation.play("walk_down")
+	
 		#when the light is turned on drain the battery 
 	if light.visible == true or flashlightGhost.visible == true: 
 		progressBar.value -= 1

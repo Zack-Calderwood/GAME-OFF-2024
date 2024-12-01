@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://djmg3ys2jjt4u" path="res://Assets/sprites/church main/church_map_main_objects.png" id="3_q4jv0"]
 [ext_resource type="Texture2D" uid="uid://tdsoua210lw6" path="res://Assets/sprites/church main/church_map_main_borders.png" id="4_vjqpx"]
 [ext_resource type="Texture2D" uid="uid://dtw4q3e4y86hw" path="res://Assets/sprites/church back/church_map_back_area_background.png" id="5_dguc4"]
-[ext_resource type="PackedScene" uid="uid://sajso4ilaq4i" path="res://Scenes/organ.tscn" id="6_5wyok"]
+[ext_resource type="PackedScene" path="res://Scenes/organ.tscn" id="6_5wyok"]
 [ext_resource type="Texture2D" uid="uid://1e2xtcy3xjw0" path="res://Assets/sprites/church back/church_map_back_area_borders.png" id="6_mihg7"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_ea2he"]
 [ext_resource type="Texture2D" uid="uid://bhql0kpnripb5" path="res://Assets/sprites/church back/church_map_back_area_objects.png" id="7_ntq7k"]
 [ext_resource type="Texture2D" uid="uid://osvh75u6myy8" path="res://Assets/sprites/church back/red_markings.png" id="8_m2yju"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="11_n5hnn"]
-[ext_resource type="PackedScene" uid="uid://d37j73micnfkx" path="res://Scenes/door3.tscn" id="14_j5ony"]
+[ext_resource type="PackedScene" uid="uid://bf54auis12t8x" path="res://Scenes/door3.tscn" id="14_j5ony"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="14_mtuka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
@@ -71,7 +71,7 @@ polygon = PackedVector2Array(2935, 1184, 2937, 1520, 3006, 1530, 3007, 1180)
 position = Vector2(2985, 1412)
 shape = SubResource("RectangleShape2D_uv8mn")
 
-[node name="Node2D" parent="main room/secret door" node_paths=PackedStringArray("game") instance=ExtResource("6_5wyok")]
+[node name="organtrigger" parent="main room/secret door" node_paths=PackedStringArray("game") instance=ExtResource("6_5wyok")]
 position = Vector2(2720, 1160)
 scale = Vector2(10, 10)
 game = NodePath("../../..")
@@ -112,17 +112,17 @@ polygon = PackedVector2Array(674, 1765, 483, 1767, 491, 1954, 1347, 1954, 1350, 
 polygon = PackedVector2Array(288, 1324, 299, 1131, 1005, 1124, 1008, 1342)
 
 [node name="Note" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(360, 5415)
+position = Vector2(965, 1045)
 scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 
 [node name="Note2" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(1480, 5600)
+position = Vector2(2530, 1585)
 scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 
 [node name="Note3" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(1240, 5520)
+position = Vector2(1425, 420)
 scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 

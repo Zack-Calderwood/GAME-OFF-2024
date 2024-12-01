@@ -1,5 +1,6 @@
 [sound path="res://Assets/sounds/player sounds/phone-ringing-7006.wav" volume="-10.0" bus="master"]
 *Phone ringing*
+[wait time="1.0"]
 Adam: Hello? Evelyn are you there?
 Evelyn: Adam, where are you? why arn't you home?
 Adam: It's my father...
@@ -16,5 +17,6 @@ Adam: I will. I love you, I'll see you soon.
 Evelyn: I love you too.
 [sound path="res://Assets/sounds/hangup.wav" volume="-15.0"]
 *phone call ends*
+[wait time="1.0"]
 [signal arg="End"]
 [end_timeline]

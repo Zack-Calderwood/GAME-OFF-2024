@@ -31,6 +31,7 @@ directories/dtl_directory={
 "AdamYap": "res://story/AdamYap.dtl",
 "PageText": "res://story/PageText.dtl",
 "adam_talking": "res://story/adam_talking.dtl",
+"church": "res://story/church.dtl",
 "timeline": "res://story/timeline.dtl"
 }
 layout/style_list=["res://story/DlogStyle.tres"]

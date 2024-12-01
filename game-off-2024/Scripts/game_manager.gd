@@ -5,7 +5,7 @@ extends Node2D
 @export var spawned_objects = []
 var score = 0
 var win = "res://Scenes/winScreen.tscn"
-@onready var noteSound = $sfx_notePickup
+@onready var noteSound = $"../AudioStreamPlayer"
 @onready var writing = $sfx_writing
 
 

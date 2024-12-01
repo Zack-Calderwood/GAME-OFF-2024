@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://okuimjyn46yr" path="res://Assets/sprites/player sprites/pages.png" id="1_y4ckv"]
 [ext_resource type="Script" path="res://Scripts/notes.gd" id="2_0f0qx"]
-[ext_resource type="AudioStream" uid="uid://b6snjgsklr8il" path="res://Assets/sounds/level sounds/note.mp3" id="3_iq7jh"]
+[ext_resource type="AudioStream" uid="uid://c1x1k6mfvg7fe" path="res://Assets/sounds/level sounds/note.wav" id="3_qu7ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv50b"]
 size = Vector2(40, 32)
@@ -27,6 +27,13 @@ scale = Vector2(0.800001, 1)
 shape = SubResource("RectangleShape2D_sv50b")
 
 [node name="pickup" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_iq7jh")
+position = Vector2(9, -5)
+stream = ExtResource("3_qu7ti")
+volume_db = 10.0
+max_distance = 4000.0
+area_mask = 255
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qu7ti")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
