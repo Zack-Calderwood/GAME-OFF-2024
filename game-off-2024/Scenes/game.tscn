@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c1x1k6mfvg7fe" path="res://Assets/sounds/level sounds/note.wav" id="8_nw0nr"]
 [ext_resource type="Script" path="res://Scripts/coffin_puzzle.gd" id="8_sf6yp"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
-[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
+[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
 [ext_resource type="PackedScene" uid="uid://cq0w8l2pooy0x" path="res://Scenes/RainScreen.tscn" id="17_jwcxy"]
 [ext_resource type="PackedScene" uid="uid://cr06qprjpuru1" path="res://Scenes/rain.tscn" id="18_2j0ju"]

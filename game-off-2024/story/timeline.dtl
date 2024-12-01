@@ -1,0 +1,20 @@
+[sound path="res://Assets/sounds/player sounds/phone-ringing-7006.wav" volume="-10.0" bus="master"]
+*Phone ringing*
+Adam: Hello? Evelyn are you there?
+Evelyn: Adam, where are you? why arn't you home?
+Adam: It's my father...
+Adam: he hasn't responded to any of my calls for the past week... im getting worried.
+Evelyn: I hope he is okay...
+[wait time="0.5"]
+Evelyn: I just wanted to check on you and make sure you're okay. 
+Adam: I'll be alright... hopefully Dad is too...
+Evelyn: I have to go to bed for work tomorrow morning, don't stay out to late..
+Evelyn: and Adam?
+Adam: yes honey?
+Evelyn: Please be careful.
+Adam: I will. I love you, I'll see you soon.
+Evelyn: I love you too.
+[sound path="res://Assets/sounds/player sounds/hangup.wav" volume="-15.0"]
+*phone call ends*
+[signal arg="End"]
+[end_timeline]

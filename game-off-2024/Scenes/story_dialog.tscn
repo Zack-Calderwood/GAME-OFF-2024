@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://tj0t1wqrfr6c"]
+
+[ext_resource type="Script" path="res://Scripts/story_dialog.gd" id="1_ojcwe"]
+[ext_resource type="Texture2D" uid="uid://68cj3dmnvr2t" path="res://Assets/sprites/placeholder sprites/black_square.png" id="2_galhb"]
+
+[node name="StoryDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ojcwe")
+
+[node name="black screen" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2110.0
+offset_top = -1947.0
+offset_right = 3201.0
+offset_bottom = 3364.0
+texture = ExtResource("2_galhb")

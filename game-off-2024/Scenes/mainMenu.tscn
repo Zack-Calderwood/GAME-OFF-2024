@@ -32,8 +32,6 @@ theme_override_constants/separation = 50
 [node name="gameName" type="Label" parent="HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Book of Secrets
-Lost Pages
-Lost In Darkness
 "
 horizontal_alignment = 1
 
@@ -42,6 +40,7 @@ layout_mode = 2
 text = "PLAY"
 
 [node name="audioSettings" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
