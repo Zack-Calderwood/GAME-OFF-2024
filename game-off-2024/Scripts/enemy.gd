@@ -28,7 +28,7 @@ var seesPlayer = false
 @export var last_location: Node2D
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-@onready var game_manager = $"../GameManager"
+var game_manager = [$"../Node2D",$"../Node2D2",$"../Node2D3",$"../Node2D4"]
 
 @export var cone_angle = 45
 @export var ray_count = 10
@@ -48,10 +48,12 @@ func _process(delta: float) -> void:
 			handle_search_state(delta)
 
 func _ready() -> void:
+	game_manager = [$"../Node2D",$"../Node2D2",$"../Node2D3",$"../Node2D4"]
 	animation.play("idle")
 	currentSpeed = patrolSpeed
 	nav_agent.target_position = player.global_position
 	currentTarget = player
+	print("current: " , currentTarget.name)
 	create_vision_cone()
 	Events.enemy_alert.connect(enemy_check_location)
 
@@ -82,11 +84,11 @@ func handle_search_state(delta: float):
 	
 func find_new_target():
 	print("find new target")
-	var pos = game_manager.spawned_objects
+	#var pos = game_manager
 	var newNum = randi_range(0,3)
 	
 	if newNum != randomNumber :
-		currentTarget = pos[newNum]
+		currentTarget = game_manager[newNum]
 		randomNumber = newNum
 	else :
 		find_new_target()

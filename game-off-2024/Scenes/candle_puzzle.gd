@@ -24,9 +24,8 @@ func _process(delta: float) -> void:
 
 
 func player_entered(area: Area2D) -> void:
-	if area.name == "Player":
-		cryptsPuzzle.add_to_array(self)
-		toggle_lit()
+	cryptsPuzzle.add_to_array(self)
+	toggle_lit()
 	pass # Replace with function body.
 	
 func toggle_lit()->void:
