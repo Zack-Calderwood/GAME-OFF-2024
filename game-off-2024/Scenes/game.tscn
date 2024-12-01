@@ -512,8 +512,9 @@ _data = {
 "text_opacity": SubResource("Animation_bvbuj")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_ngxq5")
+label = NodePath("Coffin")
 metadata/_edit_vertical_guides_ = [-512.0, 500.0, 1500.0]
 metadata/_edit_horizontal_guides_ = [-512.0, -1536.0]
 
@@ -843,23 +844,14 @@ position = Vector2(-360, -224)
 position = Vector2(-360, -136)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(4016, -208)
+position = Vector2(5304, -1901)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
 script = ExtResource("9_imr2k")
 player = NodePath("..")
 
-[node name="Note" parent="." instance=ExtResource("2_lftwq")]
-position = Vector2(4360, -246)
-
 [node name="rain" parent="." instance=ExtResource("18_2j0ju")]
-
-[node name="Note2" parent="." instance=ExtResource("2_lftwq")]
-position = Vector2(4892, -1018)
-
-[node name="Note3" parent="." instance=ExtResource("2_lftwq")]
-position = Vector2(6303, -1327)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(8, 8)
@@ -874,3 +866,15 @@ offset_top = -1792.0
 offset_right = 5299.0
 offset_bottom = -1769.0
 text = "0/3 Notes"
+
+[node name="Note" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
+position = Vector2(5312, -1832)
+gameScene = NodePath("..")
+
+[node name="Note2" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
+position = Vector2(5312, -1784)
+gameScene = NodePath("..")
+
+[node name="Note3" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
+position = Vector2(5304, -1704)
+gameScene = NodePath("..")
