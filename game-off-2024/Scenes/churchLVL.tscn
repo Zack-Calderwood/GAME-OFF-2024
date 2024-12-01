@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx0gvpujvjggc"]
+[gd_scene load_steps=19 format=3 uid="uid://dx0gvpujvjggc"]
 
 [ext_resource type="Script" path="res://Scenes/Graveyard.gd" id="1_28cyk"]
 [ext_resource type="Texture2D" uid="uid://cduksi6mpghpe" path="res://Assets/sprites/church main/church_map_main_bg.png" id="1_ydqvt"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/door3.tscn" id="14_j5ony"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="14_mtuka"]
 [ext_resource type="AudioStream" uid="uid://c1x1k6mfvg7fe" path="res://Assets/sounds/level sounds/note.wav" id="15_aimby"]
+[ext_resource type="PackedScene" uid="uid://o27a5brw3l0s" path="res://Scenes/game_manager.tscn" id="16_clt3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
 size = Vector2(108.5, 119)
@@ -143,7 +144,7 @@ script = ExtResource("14_mtuka")
 player = NodePath("..")
 
 [node name="Door" parent="." instance=ExtResource("14_j5ony")]
-position = Vector2(320, 219)
+position = Vector2(320, 208)
 position_offset = Vector2(336, -456)
 
 [node name="Door2" parent="." instance=ExtResource("14_j5ony")]
@@ -152,3 +153,5 @@ position_offset = Vector2(320, 250)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_aimby")
+
+[node name="GameManager" parent="." instance=ExtResource("16_clt3s")]

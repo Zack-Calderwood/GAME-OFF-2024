@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://di2mvjyfd0fg8"]
+[gd_scene load_steps=39 format=3 uid="uid://di2mvjyfd0fg8"]
 
 [ext_resource type="Script" path="res://Scripts/crypts_lvl_puzzle.gd" id="1_nad6r"]
 [ext_resource type="Texture2D" uid="uid://b60l3ulbtoqu6" path="res://Assets/sprites/placeholder sprites/Crypts.png" id="4_05hae"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" path="res://Scenes/candleNote.tscn" id="6_orr70"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_wkhrm"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="8_5kld0"]
-[ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://Scenes/enemy.tscn" id="9_hjqnk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_llycr"]
 vertices = PackedVector2Array(434.078, 396.148, 434.906, 492, 300, 492, 274.242, 470, 300.781, 398.148, 500.102, -411.906, 503.898, -46, 449.938, -46, 373, -77.0313, 373, -327.867, 409, -366.133, -271.258, -25.6563, -267.922, -74.9766, 413, 25.9766, -237.438, 27.0078, 263.5, 226, 266.563, 166.391, 296.109, 112.813, 294.898, 227.781, 269.758, 282.711, 413, 79.9688, 450.93, 115.797, -231.023, 82.0234, 404, 636, 404, 678.32, 379.117, 669.609, 372.828, 617.758, -431.133, 473.711, -433.852, 262.438, -418.938, 264.43, -377.023, 406.32, 302.211, 331.219, 196, -246.57, 192.742, -218.898, 155.398, -227.898, 151.609, -325.102, 196, -330.133, -557, -190, -557, -221.156, -507.75, -217.227, -515.297, -190, 303.211, -147.07, -208.18, -150.906, -202.727, -220.211, -118.758, -222.242, 278.703, 620.273, 279.68, 652.797, 31.3516, 648.172, 27.2031, 586.852, -275.859, -326.906, -272.18, -320.852, -270.18, -209.172, -391, -211.172, -499.703, -328.906, 304.773, -219.898, -72.1406, -230.102, -121.25, -323.148, -70.8672, -322.898, -23.6719, 719, -127.25, 769.773, -129.742, 673, -99, 673, -73, 680.742, 109.352, 355.75, 211, 353.25, 211, 470, 113.32, 466.844, 436.078, 677.313, 436.906, 770.898, 333, 719, -277.859, -470, 237.813, -470, 235.813, -363.867, 47, 328.977, 4.27344, 332, -130.844, 332, -129.148, 226.063, 27.1094, 227.07, 48.3203, 289.281, -129, 599, -129, 547.148, 4.75781, 549.148, -99, 599, -183.977, 117.156, -184.969, 560.117, -324, 561.867, -324, 470.719, -300.703, 411.68, 300, 553, 435, 553, 435, 636, 6.24219, 487, -130.094, 487, -130.906, 392.703, 2.74219, 388.711, 51.3281, 474.219, 409, -411.078, 433.078, 230.781, 433.906, 328.219, 49.2578, 226, -421.047, -153.68, -514.281, -156.68, -29.5781, 677.633, 215.906, 768.922, 213.922, 789.789, 93.1406, 787.188, 91.1094, 764.789, -391, -87.7266, -273.852, -90.8125, -375.977, -19.4219, 333, 675.75, -73, 607.883, 25.8906, 113.844, 52.6484, 178.508, -243.531, 47.2813)
@@ -1604,7 +1603,7 @@ note = NodePath("../Node2D4")
 position = Vector2(-488, -320)
 
 [node name="Node2D2" parent="." instance=ExtResource("6_orr70")]
-position = Vector2(-488, -233)
+position = Vector2(-472, -219)
 
 [node name="Node2D3" parent="." instance=ExtResource("6_orr70")]
 position = Vector2(-328, -232)
@@ -1613,13 +1612,9 @@ position = Vector2(-328, -232)
 position = Vector2(-328, -320)
 
 [node name="Player" parent="." instance=ExtResource("7_wkhrm")]
-position = Vector2(-240, 384)
+position = Vector2(-393, -117)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
 script = ExtResource("8_5kld0")
 player = NodePath("..")
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_hjqnk")]
-position = Vector2(224, 576)
-player = NodePath("../Player")
