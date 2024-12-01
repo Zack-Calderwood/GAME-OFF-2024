@@ -44,7 +44,7 @@ func is_node_in_array(node: Node, array: Array) -> bool:
 	
 func init_candles() -> void:
 	for i in range(puzzle_array.size()):
-		puzzle_array[i].position_in_array = i
+		puzzle_array[i].position_in_array = i + 1
 		puzzle_array[i].symbol = random_index()
 		random_symbol.erase(random_symbol[rand_index])
 		

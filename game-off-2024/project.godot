@@ -33,6 +33,7 @@ directories/dtl_directory={
 "adam_talking": "res://story/adam_talking.dtl",
 "church": "res://story/church.dtl",
 "crypt": "res://story/crypt.dtl",
+"light": "res://story/light.dtl",
 "timeline": "res://story/timeline.dtl"
 }
 layout/style_list=["res://story/DlogStyle.tres"]
