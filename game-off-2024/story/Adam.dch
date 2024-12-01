@@ -6,9 +6,9 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "style"
+"style": "DlogStyle"
 },
-"default_portrait": "mr_adam",
+"default_portrait": "mr_adamw",
 "description": "",
 "display_name": "Adam",
 "mirror": false,
@@ -18,6 +18,15 @@
 "mr_adam": {
 "export_overrides": {
 "image": "\"res://Assets/sprites/player sprites/mr_adam.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"mr_adamw": {
+"export_overrides": {
+"image": "\"res://Assets/sprites/player sprites/mr_adamw.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

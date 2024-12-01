@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfrtldrm0j368"
+path="res://.godot/imported/organ sound.wav-7e800d90ac0abb56c91d88d307b10eae.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/level sounds/organ sound.wav"
+dest_files=["res://.godot/imported/organ sound.wav-7e800d90ac0abb56c91d88d307b10eae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

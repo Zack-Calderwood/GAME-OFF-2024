@@ -3,7 +3,7 @@ extends PointLight2D
 # Reference to the player node
 @onready var player = $".."
 
-var radius = 30.0
+var radius = 20.0
 
 var move_lerp_speed  = 5.0
 

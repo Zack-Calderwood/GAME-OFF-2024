@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://r0pgl6kl4hnp"]
+[gd_scene load_steps=3 format=3 uid="uid://r0pgl6kl4hnp"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ybbfb"]
+[ext_resource type="Texture2D" uid="uid://byu7s6knufeu8" path="res://Assets/sprites/backgrounds/book of secrets title screen.png" id="2_ulbtm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,39 +12,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ybbfb")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 646.0
+texture = ExtResource("2_ulbtm")
+
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -37.5
-offset_right = 76.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="gameName" type="Label" parent="HBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Book of Secrets
-"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 426.0
+offset_top = 504.0
+offset_right = 726.0
+offset_bottom = 579.0
 text = "PLAY"
 
-[node name="audioSettings" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Audio settings"
-
-[connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

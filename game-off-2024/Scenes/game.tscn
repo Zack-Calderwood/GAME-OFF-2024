@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=40 format=3 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
@@ -16,9 +16,11 @@
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
 [ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
-[ext_resource type="PackedScene" uid="uid://cq0w8l2pooy0x" path="res://Scenes/RainScreen.tscn" id="17_jwcxy"]
 [ext_resource type="PackedScene" uid="uid://cr06qprjpuru1" path="res://Scenes/rain.tscn" id="18_2j0ju"]
+[ext_resource type="Script" path="res://Scripts/sprite_dialog.gd" id="19_ud7r1"]
+[ext_resource type="Texture2D" uid="uid://okuimjyn46yr" path="res://Assets/sprites/player sprites/pages.png" id="20_bjhic"]
 [ext_resource type="PackedScene" uid="uid://bsl628cej2oaa" path="res://inv/inv_ui.tscn" id="21_bie3a"]
+[ext_resource type="AudioStream" uid="uid://b6snjgsklr8il" path="res://Assets/sounds/level sounds/note.mp3" id="21_f1vfe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nepyd"]
 
@@ -513,6 +515,9 @@ _data = {
 "text_opacity": SubResource("Animation_bvbuj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxhyg"]
+size = Vector2(41, 33)
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_ngxq5")
 label = NodePath("Coffin")
@@ -781,6 +786,7 @@ light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)
@@ -845,10 +851,7 @@ position = Vector2(-360, -224)
 position = Vector2(-360, -136)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(5304, -1901)
-
-[node name="Node2D" parent="Player" instance=ExtResource("17_jwcxy")]
-position = Vector2(96, 373)
+position = Vector2(3944, -215)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
@@ -872,16 +875,31 @@ offset_bottom = -1769.0
 text = "0/3 Notes"
 
 [node name="Note" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
-position = Vector2(5312, -1832)
+position = Vector2(6309, -1311)
 gameScene = NodePath("..")
 
 [node name="Note2" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
-position = Vector2(5312, -1784)
+position = Vector2(4888, -1018)
 gameScene = NodePath("..")
 
 [node name="Note3" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
-position = Vector2(5304, -1704)
+position = Vector2(4375, -211)
 gameScene = NodePath("..")
 
-[connection signal="body_entered" from="MAPoutside/coffin" to="MAPoutside/coffin" method="_on_body_entered"]
-[connection signal="body_exited" from="MAPoutside/coffin" to="MAPoutside/coffin" method="_on_body_exited"]
+[node name="dialog_trigger" type="Node2D" parent="."]
+position = Vector2(3676, -65)
+script = ExtResource("19_ud7r1")
+
+[node name="Sprite2D" type="Sprite2D" parent="dialog_trigger"]
+texture = ExtResource("20_bjhic")
+
+[node name="Area2D" type="Area2D" parent="dialog_trigger"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialog_trigger/Area2D"]
+shape = SubResource("RectangleShape2D_gxhyg")
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="dialog_trigger"]
+stream = ExtResource("21_f1vfe")
+
+[connection signal="body_entered" from="dialog_trigger/Area2D" to="dialog_trigger" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="dialog_trigger/Area2D" to="dialog_trigger" method="_on_area_2d_body_exited"]
