@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxdd6swkixmb5" path="res://Assets/sprites/player sprites/light.png" id="4_g62jf"]
 [ext_resource type="PackedScene" uid="uid://cn2gsmdq0h8uo" path="res://Scenes/candle.tscn" id="5_2x6i3"]
 [ext_resource type="Texture2D" uid="uid://cdv7u8hx4w1nm" path="res://Assets/sprites/placeholder sprites/decorative.png" id="5_cppdb"]
-[ext_resource type="PackedScene" path="res://Scenes/candleNote.tscn" id="6_orr70"]
+[ext_resource type="PackedScene" uid="uid://ddqudre14y7qf" path="res://Scenes/candleNote.tscn" id="6_orr70"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_wkhrm"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="8_5kld0"]
 
@@ -1525,6 +1525,7 @@ sources/1 = SubResource("TileSetAtlasSource_a2b5g")
 script = ExtResource("1_nad6r")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, -1)
 navigation_polygon = SubResource("NavigationPolygon_llycr")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1584,37 +1585,41 @@ shadow_enabled = true
 texture = ExtResource("4_g62jf")
 
 [node name="candle" parent="." node_paths=PackedStringArray("note") instance=ExtResource("5_2x6i3")]
-position = Vector2(-104, -456)
+position = Vector2(-199, -455)
 note = NodePath("../Node2D")
 
 [node name="candle2" parent="." node_paths=PackedStringArray("note") instance=ExtResource("5_2x6i3")]
-position = Vector2(-48, -456)
+position = Vector2(-86, -460)
 note = NodePath("../Node2D2")
 
 [node name="candle3" parent="." node_paths=PackedStringArray("note") instance=ExtResource("5_2x6i3")]
-position = Vector2(8, -456)
+position = Vector2(53, -455)
 note = NodePath("../Node2D3")
 
 [node name="candle4" parent="." node_paths=PackedStringArray("note") instance=ExtResource("5_2x6i3")]
-position = Vector2(64, -456)
+position = Vector2(170, -458)
 note = NodePath("../Node2D4")
 
 [node name="Node2D" parent="." instance=ExtResource("6_orr70")]
-position = Vector2(-488, -320)
+position = Vector2(-403, -297)
 
 [node name="Node2D2" parent="." instance=ExtResource("6_orr70")]
-position = Vector2(-472, -219)
+position = Vector2(-260, 482)
 
 [node name="Node2D3" parent="." instance=ExtResource("6_orr70")]
-position = Vector2(-328, -232)
+position = Vector2(398, 740)
 
 [node name="Node2D4" parent="." instance=ExtResource("6_orr70")]
-position = Vector2(-328, -320)
+position = Vector2(449, -181)
 
 [node name="Player" parent="." instance=ExtResource("7_wkhrm")]
-position = Vector2(-393, -117)
+position = Vector2(-23, -361)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
 script = ExtResource("8_5kld0")
 player = NodePath("..")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-17, 2)
+color = Color(0.118581, 0.118581, 0.118581, 1)

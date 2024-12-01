@@ -7,6 +7,7 @@ var random_symbol = ["A", "B","C", "D", "E"]
 var rand_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Dialogic.start("crypt")
 	puzzle_array = [$candle,$candle2,$candle3,$candle4]
 	randomize_puzzle()
 	init_candles()
@@ -16,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if arrays_are_equal(puzzle_array, puzzle_attempt_array):
-		print("YOU WIN")
+		get_tree().change_scene_to_file("res://Scenes/winScreen.tscn")
 	pass
 
 func randomize_puzzle() -> void:

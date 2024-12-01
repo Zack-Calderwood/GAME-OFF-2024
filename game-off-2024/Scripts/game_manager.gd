@@ -14,14 +14,14 @@ var win = "res://Scenes/winScreen.tscn"
 func _ready() -> void:
 	spawned_objects = [$"../CryptsLvl/candle",$"../CryptsLvl/candle2",$"../CryptsLvl/candle3",$"../CryptsLvl/candle4"]
 	Events.note_Picked_Up.connect(remove_spawned_object)
-	Dialogic.start("adam_talking")
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	#Dialogic.start("adam_talking")
+	#Dialogic.signal_event.connect(_on_dialogic_signal)
 
 
-func _on_dialogic_signal(argument: String):
-	if argument == "End2":
-		print("signal recived")
-		Dialogic.start("PageText")
+#func _on_dialogic_signal(argument: String):
+	#if argument == "End2":
+		#print("signal recived")
+		#Dialogic.start("PageText")
 #spawns in notes to the map
 func add_spawned_object(object):
 	pass

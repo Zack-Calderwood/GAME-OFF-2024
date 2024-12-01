@@ -8,6 +8,11 @@ var footStepNode = preload("res://Scenes/foot_step.tscn")
 
 var spawnedObject = true
 
+
+
+
+
+
 func _process(delta: float) -> void:
 	if spawnedObject:
 		spawn_notes()

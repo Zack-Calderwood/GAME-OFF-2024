@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckm54r5vmxc60"]
+[gd_scene load_steps=3 format=3 uid="uid://ckm54r5vmxc60"]
 
 [ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_xidjl"]
+[ext_resource type="Texture2D" uid="uid://cuglyai4ljaas" path="res://Assets/sprites/backgrounds/win_screen.png" id="2_3vncn"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +11,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xidjl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 5.0
+offset_right = 2311.0
+offset_bottom = 1287.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3vncn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,13 +39,7 @@ alignment = 1
 
 [node name="win text" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "YOU DID IT HORAY"
-horizontal_alignment = 1
-
-[node name="timer text" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "PLAY YIME : (TIMER 00:00 )
-"
+text = "Adam discovers his father safe and sound"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]

@@ -7,6 +7,7 @@ func _process(delta):
 	#WHen the plater presses e open up the puzzle menu
 	if boolToggle:
 		if Input.is_action_just_pressed("Use"):
+			Dialogic.start("AdamYap")
 			get_tree().change_scene_to_file("res://Scenes/churchLVL.tscn")
 
 

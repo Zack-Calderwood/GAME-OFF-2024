@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx0gvpujvjggc"]
+[gd_scene load_steps=20 format=3 uid="uid://dx0gvpujvjggc"]
 
 [ext_resource type="Script" path="res://Scenes/Graveyard.gd" id="1_28cyk"]
 [ext_resource type="Texture2D" uid="uid://cduksi6mpghpe" path="res://Assets/sprites/church main/church_map_main_bg.png" id="1_ydqvt"]
@@ -6,16 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://djmg3ys2jjt4u" path="res://Assets/sprites/church main/church_map_main_objects.png" id="3_q4jv0"]
 [ext_resource type="Texture2D" uid="uid://tdsoua210lw6" path="res://Assets/sprites/church main/church_map_main_borders.png" id="4_vjqpx"]
 [ext_resource type="Texture2D" uid="uid://dtw4q3e4y86hw" path="res://Assets/sprites/church back/church_map_back_area_background.png" id="5_dguc4"]
-[ext_resource type="PackedScene" path="res://Scenes/organ.tscn" id="6_5wyok"]
+[ext_resource type="PackedScene" uid="uid://sajso4ilaq4i" path="res://Scenes/organ.tscn" id="6_5wyok"]
 [ext_resource type="Texture2D" uid="uid://1e2xtcy3xjw0" path="res://Assets/sprites/church back/church_map_back_area_borders.png" id="6_mihg7"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_ea2he"]
 [ext_resource type="Texture2D" uid="uid://bhql0kpnripb5" path="res://Assets/sprites/church back/church_map_back_area_objects.png" id="7_ntq7k"]
 [ext_resource type="Texture2D" uid="uid://osvh75u6myy8" path="res://Assets/sprites/church back/red_markings.png" id="8_m2yju"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="11_n5hnn"]
-[ext_resource type="PackedScene" path="res://Scenes/door3.tscn" id="14_j5ony"]
+[ext_resource type="PackedScene" uid="uid://bf54auis12t8x" path="res://Scenes/door3.tscn" id="14_j5ony"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="14_mtuka"]
 [ext_resource type="AudioStream" uid="uid://c1x1k6mfvg7fe" path="res://Assets/sounds/level sounds/note.wav" id="15_aimby"]
 [ext_resource type="PackedScene" uid="uid://o27a5brw3l0s" path="res://Scenes/game_manager.tscn" id="16_clt3s"]
+[ext_resource type="AudioStream" uid="uid://dfrtldrm0j368" path="res://Assets/sounds/level sounds/organ sound.wav" id="17_yuaaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
 size = Vector2(108.5, 119)
@@ -59,9 +60,6 @@ polygon = PackedVector2Array(1376, 1344, 1426, 1344, 1575, 1664, 1582, 1743, 191
 [node name="alter" type="CollisionShape2D" parent="main room"]
 position = Vector2(2127, 1239)
 shape = SubResource("RectangleShape2D_yde80")
-
-[node name="floor" type="CollisionPolygon2D" parent="main room"]
-polygon = PackedVector2Array(2102, 1500, 1982, 1566, 1958, 1707, 2009, 1827, 2159, 1836, 2270, 1803, 2330, 1713, 2303, 1578, 2204, 1527)
 
 [node name="secret door" type="Area2D" parent="main room"]
 
@@ -155,3 +153,6 @@ position_offset = Vector2(320, 250)
 stream = ExtResource("15_aimby")
 
 [node name="GameManager" parent="." instance=ExtResource("16_clt3s")]
+
+[node name="piano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_yuaaa")

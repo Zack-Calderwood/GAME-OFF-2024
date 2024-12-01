@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=40 format=3 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="2_lftwq"]
 [ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/placeholder sprites/Solaria Demo Tiles.png" id="4_b575t"]
 [ext_resource type="Texture2D" uid="uid://tkp1cj725ck7" path="res://Assets/sprites/outsidemap/outside_map_bg_layer.png" id="5_3t14c"]
+[ext_resource type="Script" path="res://ma_poutside.gd" id="5_424s1"]
 [ext_resource type="Texture2D" uid="uid://bku6qtg3fwrf4" path="res://Assets/sprites/outsidemap/outside_map_object_layer.png" id="6_23q47"]
 [ext_resource type="Texture2D" uid="uid://b7qhel3hxoteo" path="res://Assets/sprites/outsidemap/tree_layer.png" id="7_iiwnd"]
 [ext_resource type="PackedScene" uid="uid://o27a5brw3l0s" path="res://Scenes/game_manager.tscn" id="7_iyoej"]
@@ -16,7 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
 [ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
-[ext_resource type="PackedScene" path="res://Scenes/RainScreen.tscn" id="16_6aqj7"]
+[ext_resource type="PackedScene" uid="uid://cq0w8l2pooy0x" path="res://Scenes/RainScreen.tscn" id="16_6aqj7"]
 [ext_resource type="PackedScene" uid="uid://cr06qprjpuru1" path="res://Scenes/rain.tscn" id="18_2j0ju"]
 [ext_resource type="PackedScene" uid="uid://bsl628cej2oaa" path="res://inv/inv_ui.tscn" id="21_bie3a"]
 [ext_resource type="PackedScene" uid="uid://b3cuty2a03ou1" path="res://coffinNode.tscn" id="23_k487o"]
@@ -540,6 +541,7 @@ polygon = PackedVector2Array(1958, 1132, 1971, 1133, 1976, 1095, 1972, 1079, 195
 position = Vector2(3291, -2924)
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_nepyd")
+script = ExtResource("5_424s1")
 
 [node name="background" type="TextureRect" parent="MAPoutside"]
 offset_right = 4286.0
@@ -849,7 +851,7 @@ position = Vector2(-360, -224)
 position = Vector2(-360, -136)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(5320, -1928)
+position = Vector2(3989, -277)
 
 [node name="Node2D" parent="Player" instance=ExtResource("16_6aqj7")]
 
@@ -875,7 +877,7 @@ offset_bottom = -1769.0
 text = "0/3 Notes"
 
 [node name="Note" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
-position = Vector2(5304, -1872)
+position = Vector2(6306, -1323)
 gameScene = NodePath("..")
 
 [node name="Note2" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]

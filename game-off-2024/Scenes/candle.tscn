@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/candle_puzzle.gd" id="1_csyyv"]
 [ext_resource type="Texture2D" uid="uid://bxdd6swkixmb5" path="res://Assets/sprites/player sprites/light.png" id="1_qq2nc"]
-[ext_resource type="Texture2D" uid="uid://68cj3dmnvr2t" path="res://Assets/sprites/placeholder sprites/black_square.png" id="3_0jlyw"]
+[ext_resource type="Texture2D" uid="uid://d2lug0t67vr8h" path="res://Assets/sprites/backgrounds/candle.png" id="3_oarsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tc3bw"]
 size = Vector2(320, 560)
@@ -16,8 +16,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_qq2nc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_0jlyw")
+texture = ExtResource("3_oarsu")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.1, 0.1)
