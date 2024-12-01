@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx0gvpujvjggc"]
+[gd_scene load_steps=19 format=3 uid="uid://dx0gvpujvjggc"]
 
 [ext_resource type="Script" path="res://Scenes/Graveyard.gd" id="1_28cyk"]
 [ext_resource type="Texture2D" uid="uid://cduksi6mpghpe" path="res://Assets/sprites/church main/church_map_main_bg.png" id="1_ydqvt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bhql0kpnripb5" path="res://Assets/sprites/church back/church_map_back_area_objects.png" id="7_ntq7k"]
 [ext_resource type="Texture2D" uid="uid://osvh75u6myy8" path="res://Assets/sprites/church back/red_markings.png" id="8_m2yju"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="11_n5hnn"]
+[ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="14_mtuka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
 size = Vector2(108.5, 119)
@@ -88,9 +89,6 @@ shape = SubResource("RectangleShape2D_uv8mn")
 [node name="start" type="CollisionPolygon2D" parent="main room"]
 polygon = PackedVector2Array(214, 1079, 211, 1160, 182, 1244, 305, 1348, 241, 1503, 668, 1502, 684, 1589, 107, 1610, 83, 1108, 92, 1066)
 
-[node name="Player" parent="main room" instance=ExtResource("7_ea2he")]
-position = Vector2(359, 1308)
-
 [node name="back room" type="StaticBody2D" parent="."]
 position = Vector2(5, -2962)
 
@@ -122,22 +120,18 @@ polygon = PackedVector2Array(674, 1765, 483, 1767, 491, 1954, 1347, 1954, 1350, 
 [node name="bookshelf" type="CollisionPolygon2D" parent="back room"]
 polygon = PackedVector2Array(288, 1324, 299, 1131, 1005, 1124, 1008, 1342)
 
-[node name="Note" parent="back room" instance=ExtResource("11_n5hnn")]
-position = Vector2(1331, 506)
+[node name="Note" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
+position = Vector2(675, 4250)
 scale = Vector2(2, 2)
+gameScene = NodePath("../..")
 
 [node name="Note2" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(982, 1062)
+position = Vector2(475, 4338)
 scale = Vector2(2, 2)
 gameScene = NodePath("../..")
 
 [node name="Note3" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(2534, 1607)
-scale = Vector2(2, 2)
-gameScene = NodePath("../..")
-
-[node name="Note4" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(707, 4154)
+position = Vector2(731, 4370)
 scale = Vector2(2, 2)
 gameScene = NodePath("../..")
 
@@ -147,3 +141,12 @@ offset_top = 1176.0
 offset_right = 643.0
 offset_bottom = 1199.0
 text = "0/3 Notes"
+
+[node name="Player" parent="." instance=ExtResource("7_ea2he")]
+position = Vector2(359, 1308)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+zoom = Vector2(2.595, 2.595)
+script = ExtResource("14_mtuka")
+player = NodePath("..")

@@ -17,7 +17,6 @@ texture = ExtResource("2_5yca8")
 shape = SubResource("CircleShape2D_qn1yk")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_top = -38.0
 offset_right = 40.0
 offset_bottom = -15.0

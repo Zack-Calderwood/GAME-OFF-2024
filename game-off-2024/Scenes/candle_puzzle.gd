@@ -19,7 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	symbol_text.text = str(symbol)
-	note.text = "Pos: " + str(position_in_array) + " sym: " + str(symbol)
+	note.add_text("Pos: " + str(position_in_array) + " sym: " + str(symbol))
 	pass
 
 
