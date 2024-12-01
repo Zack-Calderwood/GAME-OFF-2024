@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx0gvpujvjggc"]
+[gd_scene load_steps=18 format=3 uid="uid://dx0gvpujvjggc"]
 
 [ext_resource type="Script" path="res://Scenes/Graveyard.gd" id="1_28cyk"]
 [ext_resource type="Texture2D" uid="uid://cduksi6mpghpe" path="res://Assets/sprites/church main/church_map_main_bg.png" id="1_ydqvt"]
@@ -6,20 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://djmg3ys2jjt4u" path="res://Assets/sprites/church main/church_map_main_objects.png" id="3_q4jv0"]
 [ext_resource type="Texture2D" uid="uid://tdsoua210lw6" path="res://Assets/sprites/church main/church_map_main_borders.png" id="4_vjqpx"]
 [ext_resource type="Texture2D" uid="uid://dtw4q3e4y86hw" path="res://Assets/sprites/church back/church_map_back_area_background.png" id="5_dguc4"]
-[ext_resource type="Script" path="res://Scenes/church_door.gd" id="5_rmlq5"]
 [ext_resource type="Script" path="res://Scripts/organ.gd" id="6_fvt6u"]
 [ext_resource type="Texture2D" uid="uid://1e2xtcy3xjw0" path="res://Assets/sprites/church back/church_map_back_area_borders.png" id="6_mihg7"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="7_ea2he"]
 [ext_resource type="Texture2D" uid="uid://bhql0kpnripb5" path="res://Assets/sprites/church back/church_map_back_area_objects.png" id="7_ntq7k"]
 [ext_resource type="Texture2D" uid="uid://osvh75u6myy8" path="res://Assets/sprites/church back/red_markings.png" id="8_m2yju"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="11_n5hnn"]
+[ext_resource type="PackedScene" uid="uid://d37j73micnfkx" path="res://Scenes/door3.tscn" id="14_j5ony"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="14_mtuka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yde80"]
 size = Vector2(108.5, 119)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxg1x"]
-size = Vector2(216.25, 189)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jq7d7"]
 size = Vector2(241.5, 87)
@@ -64,11 +61,6 @@ polygon = PackedVector2Array(1376, 1344, 1426, 1344, 1575, 1664, 1582, 1743, 191
 position = Vector2(2127, 1239)
 shape = SubResource("RectangleShape2D_yde80")
 
-[node name="door" type="CollisionShape2D" parent="main room"]
-position = Vector2(1608, 1014)
-shape = SubResource("RectangleShape2D_nxg1x")
-script = ExtResource("5_rmlq5")
-
 [node name="organ" type="CollisionShape2D" parent="main room"]
 position = Vector2(2689, 1134)
 shape = SubResource("RectangleShape2D_jq7d7")
@@ -91,7 +83,8 @@ shape = SubResource("RectangleShape2D_uv8mn")
 polygon = PackedVector2Array(214, 1079, 211, 1160, 182, 1244, 305, 1348, 241, 1503, 668, 1502, 684, 1589, 107, 1610, 83, 1108, 92, 1066)
 
 [node name="back room" type="StaticBody2D" parent="."]
-position = Vector2(5, -2962)
+position = Vector2(48, -840)
+scale = Vector2(0.2, 0.2)
 
 [node name="background" type="TextureRect" parent="back room"]
 offset_right = 40.0
@@ -132,7 +125,7 @@ scale = Vector2(0.5, 0.5)
 gameScene = NodePath("../..")
 
 [node name="Note3" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(347, 3198)
+position = Vector2(1440, 1960)
 scale = Vector2(0.5, 0.5)
 gameScene = NodePath("../..")
 
@@ -150,3 +143,11 @@ position = Vector2(88, 248)
 zoom = Vector2(2.595, 2.595)
 script = ExtResource("14_mtuka")
 player = NodePath("..")
+
+[node name="Door" parent="." instance=ExtResource("14_j5ony")]
+position = Vector2(320, 219)
+position_offset = Vector2(336, -456)
+
+[node name="Door2" parent="." instance=ExtResource("14_j5ony")]
+position = Vector2(336, -424)
+position_offset = Vector2(320, 248)
