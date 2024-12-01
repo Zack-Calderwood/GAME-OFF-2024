@@ -10,10 +10,10 @@ var collision
 @onready var light = $FlashLight
 @onready var flashlightGhost = $GhostFlashLight
 @onready var progressBar = $ProgressBar
-@onready var walkingSFX = $sfx_walking
+#@onready var walkingSFX = $sfx_walking
 @onready var switchSFX = $sfx_switch
-@export var inv: Inv
-
+#@export var inv: Inv
+@onready var animation = $AnimationPlayer
 
 var flashON = false
 
@@ -46,18 +46,27 @@ func _process(delta):
 	#player movement controlls
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
+		$Sprite2D.flip_h = false
 		direction.x += 1
-		
+		animation.play("walk")
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		
+		animation.play("walk")
+		$Sprite2D.flip_h = true
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
-		
+		animation.play("walk_down")
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-		
-	
+		animation.play("walk_up")
+	if Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_right"):
+		animation.play("walk_up")
+	if Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_left"):
+		animation.play("walk_up")
+	if Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_right"):
+		animation.play("walk_down")	
+	if Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_left"):
+		animation.play("walk_down")
 		#when the light is turned on drain the battery 
 	if light.visible == true or flashlightGhost.visible == true: 
 		progressBar.value -= 1
@@ -88,5 +97,5 @@ func door_push():
 			var push_force = (PUSH_FORCE*velocity.length()/speed ) + MIN_PUSH_FORCE
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 			
-func pickup(item):
-	inv.insert(item)
+#func pickup(item):
+#	inv.insert(item)

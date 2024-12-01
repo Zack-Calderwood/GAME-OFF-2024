@@ -886,7 +886,6 @@ position = Vector2(4892, -1018)
 position = Vector2(6303, -1327)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 scale = Vector2(8, 8)
 transform = Transform2D(8, 0, 0, 8, 0, 0)
 

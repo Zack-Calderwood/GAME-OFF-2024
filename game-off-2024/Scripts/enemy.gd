@@ -36,7 +36,7 @@ var seesPlayer = false
 
 @onready var timer = $Timer
 @onready var timerState = $Timer2
-
+@onready var animation = $AnimationPlayer
 func _process(delta: float) -> void:
 	door_push()
 	match state :
@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 			handle_search_state(delta)
 
 func _ready() -> void:
+	animation.play("idle")
 	currentSpeed = patrolSpeed
 	nav_agent.target_position = player.global_position
 	currentTarget = player
@@ -127,7 +128,7 @@ func vision_cone_detect(delta: float, look_speed: float) -> void:
 		angle_to_target = global_position.angle_to_point(currentTarget.global_position)
 		var angle = deg_to_rad(-cone_angle / 2 + cone_angle * i / (ray_count - 1))
 		var direction = Vector2(cos(angle_to_target), sin(angle_to_target))
-		var ray = get_child(i + 9)  # this need to be revisted can't have 6 here 
+		var ray = get_child(i + 10)  # this need to be revisted can't have 6 here 
 		ray.target_position = ray.target_position.lerp(direction * max_distance, delta * look_speed)
 		ray.rotation = lerp_angle(ray.rotation, angle, look_speed * delta)
 		
