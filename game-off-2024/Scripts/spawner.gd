@@ -22,7 +22,7 @@ func spawn_footsteps(position: Vector2):
 	get_parent().add_child(footstep_instance)
 	
 func _on_timer_timeout() -> void:
-	spawn_footsteps(enemy_node.global_position)
+	#spawn_footsteps(enemy_node.global_position)
 	pass # Replace with function body.
 	
 func spawn_notes()-> void:

@@ -43,8 +43,9 @@ func camera_movement(delta: float) -> void:
 	camera_shake(delta)
 
 func apply_shake() -> void : 
-	if enemy.get_state() == 1: #change later 1 == EnemyState.chase
-		shake_strength = randomStrength
+	if enemy != null :
+		if enemy.get_state() == 1: #change later 1 == EnemyState.chase
+			shake_strength = randomStrength
 	
 func randomOffset() -> Vector2:
 	return Vector2(rng.randf_range(-shake_strength, shake_strength),rng.randf_range(-shake_strength, shake_strength))
@@ -57,7 +58,9 @@ func camera_shake(delta: float) -> void:
 		
 func adjust_value_by_distance(current_value: float, min_value: float, max_value: float, max_distance: float, speed: float) -> float:
 
-	var distance = $"..".position.distance_to($"../../Enemy".position)
+	#var distance = $"..".position.distance_to($"../../Enemy".position)
+	
+	var distance = 0
 	
 	var distance_factor = clamp(1.0 - distance / max_distance, 0, 1)
 	

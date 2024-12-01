@@ -1,11 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=36 format=3 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
-[ext_resource type="PackedScene" uid="uid://cn2gsmdq0h8uo" path="res://Scenes/candle.tscn" id="2_g3qm3"]
+[ext_resource type="Script" path="res://Scenes/Graveyard.gd" id="1_ngxq5"]
 [ext_resource type="PackedScene" uid="uid://61vrvt1m7nn4" path="res://Scenes/note.tscn" id="2_lftwq"]
 [ext_resource type="Texture2D" uid="uid://bnepti46tt4b7" path="res://Assets/sprites/placeholder sprites/Solaria Demo Tiles.png" id="4_b575t"]
-[ext_resource type="PackedScene" uid="uid://bwv6x1dinc7oc" path="res://Scenes/enemy.tscn" id="5_1h8ef"]
 [ext_resource type="Texture2D" uid="uid://tkp1cj725ck7" path="res://Assets/sprites/outsidemap/outside_map_bg_layer.png" id="5_3t14c"]
 [ext_resource type="Texture2D" uid="uid://bku6qtg3fwrf4" path="res://Assets/sprites/outsidemap/outside_map_object_layer.png" id="6_23q47"]
 [ext_resource type="Texture2D" uid="uid://b7qhel3hxoteo" path="res://Assets/sprites/outsidemap/tree_layer.png" id="7_iiwnd"]
@@ -15,9 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://c1x1k6mfvg7fe" path="res://Assets/sounds/level sounds/note.wav" id="8_nw0nr"]
 [ext_resource type="Script" path="res://Scripts/coffin_puzzle.gd" id="8_sf6yp"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
-[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/writing.wav" id="10_8yvlv"]
+[ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
-[ext_resource type="PackedScene" uid="uid://di2mvjyfd0fg8" path="res://Scenes/cryptsLVL.tscn" id="12_fy0nc"]
 [ext_resource type="PackedScene" uid="uid://cr06qprjpuru1" path="res://Scenes/rain.tscn" id="18_2j0ju"]
 [ext_resource type="PackedScene" uid="uid://bsl628cej2oaa" path="res://inv/inv_ui.tscn" id="21_bie3a"]
 
@@ -515,27 +513,12 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ngxq5")
 metadata/_edit_vertical_guides_ = [-512.0, 500.0, 1500.0]
 metadata/_edit_horizontal_guides_ = [-512.0, -1536.0]
 
-[node name="CryptsLvl" parent="." instance=ExtResource("12_fy0nc")]
-position = Vector2(1464, 192)
-
-[node name="candle" parent="CryptsLvl" instance=ExtResource("2_g3qm3")]
-position = Vector2(437, -206)
-
-[node name="candle2" parent="CryptsLvl" instance=ExtResource("2_g3qm3")]
-position = Vector2(-365, -275)
-
-[node name="candle3" parent="CryptsLvl" instance=ExtResource("2_g3qm3")]
-position = Vector2(249, 549)
-
-[node name="candle4" parent="CryptsLvl" instance=ExtResource("2_g3qm3")]
-position = Vector2(-270, 459)
-
-[node name="Spawner" parent="." node_paths=PackedStringArray("enemy_node") instance=ExtResource("1_562c2")]
+[node name="Spawner" parent="." instance=ExtResource("1_562c2")]
 note = ExtResource("2_lftwq")
-enemy_node = NodePath("../Enemy")
 game_manager_path = NodePath("../GameManager")
 
 [node name="MAPoutside" type="StaticBody2D" parent="."]
@@ -791,17 +774,11 @@ use_parent_material = true
 position = Vector2(-721, -333)
 tile_set = SubResource("TileSet_kl1fu")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("last_location", "player") instance=ExtResource("5_1h8ef")]
-position = Vector2(1608, 728)
-last_location = NodePath("../LastLocation")
-player = NodePath("../Player")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_xtejg")
 position = Vector2(0, 1)
 scale = Vector2(0.866667, 0.464286)
-color = Color(0.172833, 0.172832, 0.172833, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("7_iyoej")]
 position = Vector2(9.36365, -81.8221)
@@ -866,13 +843,12 @@ position = Vector2(-360, -224)
 position = Vector2(-360, -136)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
-position = Vector2(3955, -232)
+position = Vector2(4016, -208)
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player", "enemy")]
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
 script = ExtResource("9_imr2k")
 player = NodePath("..")
-enemy = NodePath("../../Enemy")
 
 [node name="Note" parent="." instance=ExtResource("2_lftwq")]
 position = Vector2(4360, -246)
@@ -886,8 +862,15 @@ position = Vector2(4892, -1018)
 position = Vector2(6303, -1327)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 scale = Vector2(8, 8)
 transform = Transform2D(8, 0, 0, 8, 0, 0)
 
 [node name="inv_UI" parent="CanvasLayer" instance=ExtResource("21_bie3a")]
+visible = false
+
+[node name="Coffin" type="Label" parent="."]
+offset_left = 5224.0
+offset_top = -1792.0
+offset_right = 5299.0
+offset_bottom = -1769.0
+text = "0/3 Notes"
