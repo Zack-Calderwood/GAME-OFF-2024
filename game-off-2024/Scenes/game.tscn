@@ -882,3 +882,6 @@ gameScene = NodePath("..")
 [node name="Note3" parent="." node_paths=PackedStringArray("gameScene") instance=ExtResource("2_lftwq")]
 position = Vector2(5304, -1704)
 gameScene = NodePath("..")
+
+[connection signal="body_entered" from="MAPoutside/coffin" to="MAPoutside/coffin" method="_on_body_entered"]
+[connection signal="body_exited" from="MAPoutside/coffin" to="MAPoutside/coffin" method="_on_body_exited"]
