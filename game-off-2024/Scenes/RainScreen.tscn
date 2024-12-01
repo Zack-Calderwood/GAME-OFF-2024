@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq0w8l2pooy0x"]
+
+[ext_resource type="Script" path="res://Scenes/rain_screen.gd" id="1_44bnm"]
+[ext_resource type="Texture2D" uid="uid://26d18t7savsv" path="res://Assets/sprites/rain.png" id="1_c2rej"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("rain_img", "rain_img2")]
+script = ExtResource("1_44bnm")
+rain_img = NodePath("Rain1")
+rain_img2 = NodePath("Rain2")
+
+[node name="Rain1" type="Sprite2D" parent="."]
+position = Vector2(0, 304)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_c2rej")
+
+[node name="Rain2" type="Sprite2D" parent="."]
+position = Vector2(-8, -544)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_c2rej")

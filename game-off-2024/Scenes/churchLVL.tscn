@@ -115,18 +115,18 @@ polygon = PackedVector2Array(674, 1765, 483, 1767, 491, 1954, 1347, 1954, 1350, 
 polygon = PackedVector2Array(288, 1324, 299, 1131, 1005, 1124, 1008, 1342)
 
 [node name="Note" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(123, 3202)
-scale = Vector2(0.5, 0.5)
+position = Vector2(360, 5415)
+scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 
 [node name="Note2" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(259, 3198)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1480, 5600)
+scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 
 [node name="Note3" parent="back room" node_paths=PackedStringArray("gameScene") instance=ExtResource("11_n5hnn")]
-position = Vector2(1440, 1960)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1240, 5520)
+scale = Vector2(3, 3)
 gameScene = NodePath("../..")
 
 [node name="Label" type="Label" parent="."]
@@ -150,4 +150,4 @@ position_offset = Vector2(336, -456)
 
 [node name="Door2" parent="." instance=ExtResource("14_j5ony")]
 position = Vector2(336, -424)
-position_offset = Vector2(320, 248)
+position_offset = Vector2(320, 250)

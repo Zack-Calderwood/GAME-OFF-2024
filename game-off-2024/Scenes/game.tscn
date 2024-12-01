@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://en5hkr4v01ov"]
+[gd_scene load_steps=37 format=3 uid="uid://en5hkr4v01ov"]
 
 [ext_resource type="PackedScene" uid="uid://bjoq8tpr4kn53" path="res://Scenes/spawner.tscn" id="1_562c2"]
 [ext_resource type="PackedScene" uid="uid://df6drajyppg1f" path="res://Scenes/player.tscn" id="1_ftx2x"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="9_imr2k"]
 [ext_resource type="AudioStream" uid="uid://du3ngi7edttuk" path="res://Assets/sounds/level sounds/Writing.wav" id="10_8yvlv"]
 [ext_resource type="PackedScene" uid="uid://c430r77ytstfk" path="res://Scenes/secret.tscn" id="10_bb0li"]
+[ext_resource type="PackedScene" uid="uid://cq0w8l2pooy0x" path="res://Scenes/RainScreen.tscn" id="17_jwcxy"]
 [ext_resource type="PackedScene" uid="uid://cr06qprjpuru1" path="res://Scenes/rain.tscn" id="18_2j0ju"]
 [ext_resource type="PackedScene" uid="uid://bsl628cej2oaa" path="res://inv/inv_ui.tscn" id="21_bie3a"]
 
@@ -845,6 +846,9 @@ position = Vector2(-360, -136)
 
 [node name="Player" parent="." instance=ExtResource("1_ftx2x")]
 position = Vector2(5304, -1901)
+
+[node name="Node2D" parent="Player" instance=ExtResource("17_jwcxy")]
+position = Vector2(96, 373)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 zoom = Vector2(2.595, 2.595)
